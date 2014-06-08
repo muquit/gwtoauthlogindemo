@@ -1,0 +1,21 @@
+= GWTOAuthLoginDemo = 
+
+* [[https://gwtoauthlogindemo.appspot.com/GWTOAuthLoginDemo.html|
+GWTOAuthLoginDemo]] is a web application written using 
+[[https://developers.google.com/web-toolkit/|GWT]] to demonstrate user
+Authorization using 
+[[http://oauth.net/|OAuth]] protocol used by third party providers (Facebook, 
+Google, Twitter etc.). This Application uses Server side flow of OAuth
+using the 
+[[https://github.com/fernandezpablo85/scribe-java|Scribe]] library. The API is
+extended for some providers e.g. Google 2.0, Instagram, github.
+
+* If you need to add third party login in your GWT application, I would like to
+think you can use this application as an example. I am releasing the code with
+the hope that you will find it useful. I am also interested in code review, 
+finding security issues etc. if there are any.
+
+I am in the process of moving the project from [[https://code.google.com/p/gwtoauthlogindemo/]]
+
+..
+

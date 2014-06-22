@@ -25,30 +25,6 @@ public class ClientUtils
     public final static int DIALOG_Y_POSITION = 110;
 
     
-    // Callback URL is registered with each OAuth Provider
-    // Make sure the URL point to the correct one before deploying to GAE
-
-    /* my dev mode at local host*/
-    private static final String APP_CALLBACK_URL              = CallbackUrl.APP_CALLBACK_URL;
-
-    private static final String FACEBOOK_PROTECTED_RESOURCE_URL  = "https://graph.facebook.com/me";
-    private static final String GOOGLE_PROTECTED_RESOURSE_URL    = "https://www.googleapis.com/oauth2/v1/userinfo";
-    private static final String TWITTER_PROTECTED_RESOURCE_URL   = "https://api.twitter.com/1.1/account/verify_credentials.json";
-    // %s is guid and the caller must replace
-    private static final String YAHOO_PROTECTED_RESOURCE_URL     = "http://social.yahooapis.com/v1/user/%s/profile?format=json";
-    private static final String LINKEDIN_PROTECTED_RESOURCE_URL  = "https://api.linkedin.com/v1/people/~?oauth2_access_token=%s&format=json";
-    // %s is userId and acess token and the caller must replace
-    private static final String INSTAGRAM_PROTECTED_RESOURCE_URL = "https://api.instagram.com/v1/users/%s/?access_token=%s";
-    private static final String IMGUR_PROTECTED_RESOURCE_URL     = "http://api.imgur.com/2/account.json";
-    private static final String GITHUB_PROTECTED_RESOURCE_URL    = "https://api.github.com/user?access_token=%s";
-    private static final String LIVE_PROTECTED_RESOURCE_URL      = "https://apis.live.net/v5.0/me";
-    private static final String FLICKR_PROTECTED_RESOURCE_URL    = "http://api.flickr.com/services/rest?format=json&nojsoncallback=1&method=flickr.test.login";
-    private static final String VIMEO_PROTECTED_RESOURCE_URL     = "http://vimeo.com/api/rest/v2?format=json&method=vimeo.people.getInfo";
-    private static final String TUMBLR_PROTECTED_RESOURCE_URL    = "https://api.tumblr.com/v2/user/info";
-    // caller must replace %s with access token
-    private static final String FOURSQUARE_PROTECTED_RESOURCE_URL = "https://api.foursquare.com/v2/users/self?v=20131016&oauth_token=%s";
-    
-    
     public static final String SESSION_EXPIRED_MESSAGE = "Session has expired";
     
     private static String[] authProviders = 
@@ -156,7 +132,7 @@ public class ClientUtils
     
     public static String getCallbackUrl()
     {
-        return APP_CALLBACK_URL;
+        return CallbackUrl.APP_CALLBACK_URL;
     }
     
     public static String getProctedResourceUrl(int authProvider)
@@ -165,67 +141,67 @@ public class ClientUtils
         {
             case FACEBOOK:
             {
-                return FACEBOOK_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.FACEBOOK_PROTECTED_RESOURCE_URL;
             }
             
             case GOOGLE:
             {
-                return GOOGLE_PROTECTED_RESOURSE_URL;
+                return ProtectedUrls.GOOGLE_PROTECTED_RESOURSE_URL;
             }
 
             case TWITTER:
             {
-                return TWITTER_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.TWITTER_PROTECTED_RESOURCE_URL;
             }
             
             case YAHOO:
             {
-                return YAHOO_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.YAHOO_PROTECTED_RESOURCE_URL;
             }
             
             case LINKEDIN:
             {
-                return LINKEDIN_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.LINKEDIN_PROTECTED_RESOURCE_URL;
             }
             
             case INSTAGRAM:
             {
-                return INSTAGRAM_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.INSTAGRAM_PROTECTED_RESOURCE_URL;
             }
             
             case IMGUR:
             {
-                return IMGUR_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.IMGUR_PROTECTED_RESOURCE_URL;
             }
             
             case GITHUB:
             {
-                return GITHUB_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.GITHUB_PROTECTED_RESOURCE_URL;
             }
             
             case FLICKR:
             {
-                return FLICKR_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.FLICKR_PROTECTED_RESOURCE_URL;
             }
             
             case VIMEO:
             {
-                return VIMEO_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.VIMEO_PROTECTED_RESOURCE_URL;
             }
             
             case WINDOWS_LIVE:
             {
-                return LIVE_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.LIVE_PROTECTED_RESOURCE_URL;
             }
             
             case TUMBLR:
             {
-                return TUMBLR_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.TUMBLR_PROTECTED_RESOURCE_URL;
             }
             
             case FOURSQUARE:
             {
-                return FOURSQUARE_PROTECTED_RESOURCE_URL;
+                return ProtectedUrls.FOURSQUARE_PROTECTED_RESOURCE_URL;
             }
             
             default:

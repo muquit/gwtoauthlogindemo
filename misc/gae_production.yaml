@@ -1,4 +1,7 @@
 --- !ruby/object:OAuthParams
+#
+# This file is used to generated OAuth parameters for production use in
+# Google App Engine. DO NOT MODIFY
 providers:
   facebook:
     app_name: 'OAuthLoginDemo'

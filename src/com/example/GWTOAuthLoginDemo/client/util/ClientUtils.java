@@ -31,43 +31,20 @@ public class ClientUtils
     /* my dev mode at local host*/
     private static final String APP_CALLBACK_URL              = CallbackUrl.APP_CALLBACK_URL;
 
-    /* test at GAE */
-    //-private static final String APP_CALLBACK_URL                = "https://http://gwtoauthlogindemo-test.appspot.com/GWTOAuthLoginDemo.html";
-
-    /* production at GAE */
-    //-private static final String APP_CALLBACK_URL                = "https://http://gwtoauthlogindemo-latest.appspot.com/GWTOAuthLoginDemo.html";
-    
-    
     private static final String FACEBOOK_PROTECTED_RESOURCE_URL  = "https://graph.facebook.com/me";
-    
     private static final String GOOGLE_PROTECTED_RESOURSE_URL    = "https://www.googleapis.com/oauth2/v1/userinfo";
-    
-    /* old 1.0 api */
-//    private static final String TWITTER_PROTECTED_RESOURCE_URL   = "https://api.twitter.com/1/account/verify_credentials.json";
     private static final String TWITTER_PROTECTED_RESOURCE_URL   = "https://api.twitter.com/1.1/account/verify_credentials.json";
-    
     // %s is guid and the caller must replace
     private static final String YAHOO_PROTECTED_RESOURCE_URL     = "http://social.yahooapis.com/v1/user/%s/profile?format=json";
-    
-//    private static final String LINKEDIN_PROTECTED_RESOURCE_URL  = "http://api.linkedin.com/v1/people/~?format=json";
     private static final String LINKEDIN_PROTECTED_RESOURCE_URL  = "https://api.linkedin.com/v1/people/~?oauth2_access_token=%s&format=json";
-    
     // %s is userId and acess token and the caller must replace
     private static final String INSTAGRAM_PROTECTED_RESOURCE_URL = "https://api.instagram.com/v1/users/%s/?access_token=%s";
-    
     private static final String IMGUR_PROTECTED_RESOURCE_URL     = "http://api.imgur.com/2/account.json";
-    
     private static final String GITHUB_PROTECTED_RESOURCE_URL    = "https://api.github.com/user?access_token=%s";
-    
     private static final String LIVE_PROTECTED_RESOURCE_URL      = "https://apis.live.net/v5.0/me";
-    
     private static final String FLICKR_PROTECTED_RESOURCE_URL    = "http://api.flickr.com/services/rest?format=json&nojsoncallback=1&method=flickr.test.login";
-    
-    
     private static final String VIMEO_PROTECTED_RESOURCE_URL     = "http://vimeo.com/api/rest/v2?format=json&method=vimeo.people.getInfo";
-    
     private static final String TUMBLR_PROTECTED_RESOURCE_URL    = "https://api.tumblr.com/v2/user/info";
-    
     // caller must replace %s with access token
     private static final String FOURSQUARE_PROTECTED_RESOURCE_URL = "https://api.foursquare.com/v2/users/self?v=20131016&oauth_token=%s";
     

@@ -229,6 +229,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 
             }
             
+            /*
             case ClientUtils.IMGUR:
             {
                 service = new ServiceBuilder()
@@ -239,6 +240,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                     .build();
                 break;
             }
+            */
             
             case ClientUtils.FLICKR:
             {
@@ -322,13 +324,10 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             throw new OurException("Could not build OAuthService");
         }
         
-//            authProvider == ClientUtils.LINKEDIN   ||
-        
         if (authProvider == ClientUtils.TWITTER    ||
-            authProvider == ClientUtils.YAHOO      ||
             authProvider == ClientUtils.FLICKR     ||
-            authProvider == ClientUtils.IMGUR      ||
             authProvider == ClientUtils.TUMBLR     ||
+            authProvider == ClientUtils.YAHOO      ||
             authProvider == ClientUtils.VIMEO)
         {
             String authProviderName = ClientUtils.getAuthProviderName(authProvider);
@@ -343,7 +342,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             }
             catch(Exception e)
             {
-                System.out.println("MMMM exception: " + e);
+                System.out.println("Exception getting request token: " + e);
                 
                 String stackTrace = stackTraceToString(e);
                 throw new OurException("Could not get request token for " + authProvider + " " + stackTrace);
@@ -698,7 +697,6 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             case ClientUtils.YAHOO:
             case ClientUtils.LINKEDIN:
             case ClientUtils.FLICKR:
-            case ClientUtils.IMGUR:
             case ClientUtils.VIMEO:
             case ClientUtils.TUMBLR:
             {

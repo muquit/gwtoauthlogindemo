@@ -40,6 +40,7 @@ providers:
     app_name: 'OAuthLoginDemo'
     app_id: '4cda3073a98234ff91e1edf0f94054a1'
     app_secret: '825fa1fad4742353'
+    comment: 'registered as oauthdemo2012@yahoo, does not use redirect url'
   imgur:
     app_name: 'OAuthLoginDemo'
     app_id: '5de89977fe51b0497fd485f656f2215c050c3be63'
@@ -63,8 +64,9 @@ providers:
     comment: 'registered as oauthdemo2012 on Jun-22-2014'
   tumblrlive:
     app_name: 'OAuthLoginDemo'
-    app_id: 'cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa'
-    app_secret: 'ZB40SOPKLZbVLSxwpK7cqvt3QlTXJlkL2l7P52ayXhAuoNu5Xl'
+    app_id: 'AUv036uUfM7uXlyh2aMowLgIZYdtr6bRzO7Wr9CCSsD95E84ek'
+    app_secret: 'z2dMPLwTA6kSivy4dNro9FzZsOUIk3vKQErkZp1N1AxdSlVBNp'
+    comment: 'registered as oauthdemo2012@gmail on Jun-22-2014'
   foursquare:
     app_name: 'OAuthLoginDemo'
     app_id: '301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ'

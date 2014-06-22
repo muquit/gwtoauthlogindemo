@@ -244,8 +244,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                 .provider(FlickrApi.class)
-                    .apiKey(ServerUtils.FLICKR_APP_ID)
-                    .apiSecret(ServerUtils.FLICKR_APP_SECRET)
+                    .apiKey(OAuthParams.FLICKR_APP_ID)
+                    .apiSecret(OAuthParams.FLICKR_APP_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -279,8 +279,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                 .provider(TumblrApi.class)
-                    .apiKey(ServerUtils.TUMBLRLIVE_APP_ID)
-                    .apiSecret(ServerUtils.TUMBLRLIVE_APP_SECRET)
+                    .apiKey(OAuthParams.TUMBLRLIVE_APP_ID)
+                    .apiSecret(OAuthParams.TUMBLRLIVE_APP_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;

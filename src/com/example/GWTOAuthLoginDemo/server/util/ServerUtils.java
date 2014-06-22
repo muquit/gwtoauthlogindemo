@@ -73,9 +73,9 @@ public class ServerUtils
     /** github starts --*/
     
     /** flickr starts Dec-21-2012 --*/
-    public static final String FLICKR_APP_NAME     = "OAuthLoginDemo";
-    public static final String FLICKR_APP_ID       = "4cda3073a98234ff91e1edf0f94054a1";
-    public static final String FLICKR_APP_SECRET   = "825fa1fad4742353";
+    //public static final String FLICKR_APP_NAME     = "OAuthLoginDemo";
+    //public static final String FLICKR_APP_ID       = "4cda3073a98234ff91e1edf0f94054a1";
+    //public static final String FLICKR_APP_SECRET   = "825fa1fad4742353";
     /** flickr end Dec-21-2012 --*/
    
     /** Imagur starts Dec-08-2012 - their cert is invalid - */
@@ -109,9 +109,9 @@ public class ServerUtils
     /** Windows Live ends Dec-23-2012 */
     
     /** tumblr starts Dec-23-2012 */
-    public static final String TUMBLRLIVE_APP_NAME     = "OAuthLoginDemo";
-    public static final String TUMBLRLIVE_APP_ID       = "cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa";
-    public static final String TUMBLRLIVE_APP_SECRET   = "ZB40SOPKLZbVLSxwpK7cqvt3QlTXJlkL2l7P52ayXhAuoNu5Xl";
+//    public static final String TUMBLRLIVE_APP_NAME     = "OAuthLoginDemo";
+//    public static final String TUMBLRLIVE_APP_ID       = "cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa";
+//    public static final String TUMBLRLIVE_APP_SECRET   = "ZB40SOPKLZbVLSxwpK7cqvt3QlTXJlkL2l7P52ayXhAuoNu5Xl";
     /** tumblr ends Dec-23-2012 */
     
     /* foursquare starts Dec-23-2012 */

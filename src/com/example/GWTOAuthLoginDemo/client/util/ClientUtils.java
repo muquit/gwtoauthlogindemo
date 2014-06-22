@@ -63,12 +63,13 @@ public class ClientUtils
     
     private static final String FLICKR_PROTECTED_RESOURCE_URL    = "http://api.flickr.com/services/rest?format=json&nojsoncallback=1&method=flickr.test.login";
     
+    
     private static final String VIMEO_PROTECTED_RESOURCE_URL     = "http://vimeo.com/api/rest/v2?format=json&method=vimeo.people.getInfo";
     
     private static final String TUMBLR_PROTECTED_RESOURCE_URL    = "https://api.tumblr.com/v2/user/info";
     
     // caller must replace %s with access token
-    private static final String FOURSQUARE_PROTECTED_RESOURCE_URL = "https://api.foursquare.com/v2/users/self?oauth_token=%s";
+    private static final String FOURSQUARE_PROTECTED_RESOURCE_URL = "https://api.foursquare.com/v2/users/self?v=20131016&oauth_token=%s";
     
     
     public static final String SESSION_EXPIRED_MESSAGE = "Session has expired";

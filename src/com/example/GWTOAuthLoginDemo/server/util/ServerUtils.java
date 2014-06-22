@@ -115,9 +115,9 @@ public class ServerUtils
     /** tumblr ends Dec-23-2012 */
     
     /* foursquare starts Dec-23-2012 */
-    public static final String FOURSQUARE_APP_NAME     = "OAuthLoginDemo";
-    public static final String FOURSQUARE_APP_ID       = "301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ";
-    public static final String FOURSQUARE_APP_SECRET   = "D5AALHCQ0NCMXQ5VOD2PEFPTCYWLKL0ZJG0K3X25Q1E0IN52";
+    //public static final String FOURSQUARE_APP_NAME     = "OAuthLoginDemo";
+    //public static final String FOURSQUARE_APP_ID       = "301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ";
+    //public static final String FOURSQUARE_APP_SECRET   = "D5AALHCQ0NCMXQ5VOD2PEFPTCYWLKL0ZJG0K3X25Q1E0IN52";
     /* foursquare ends Dec-23-2012 */
     
     @Deprecated

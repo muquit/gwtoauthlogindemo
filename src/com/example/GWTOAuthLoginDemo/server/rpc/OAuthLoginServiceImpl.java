@@ -278,7 +278,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             case ClientUtils.TUMBLR:
             {
                 service = new ServiceBuilder()
-                .provider(TumblrApi.class)
+                    .provider(TumblrApi.class)
                     .apiKey(OAuthParams.TUMBLRLIVE_APP_ID)
                     .apiSecret(OAuthParams.TUMBLRLIVE_APP_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
@@ -289,9 +289,9 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             case ClientUtils.FOURSQUARE:
             {
                 service = new ServiceBuilder()
-                .provider(Foursquare2Api.class)
-                    .apiKey(ServerUtils.FOURSQUARE_APP_ID)
-                    .apiSecret(ServerUtils.FOURSQUARE_APP_SECRET)
+                    .provider(Foursquare2Api.class)
+                    .apiKey(OAuthParams.FOURSQUARE_APP_ID)
+                    .apiSecret(OAuthParams.FOURSQUARE_APP_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;

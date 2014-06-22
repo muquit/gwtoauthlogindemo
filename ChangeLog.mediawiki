@@ -11,5 +11,6 @@ so much easier to maintain three registered apps and test at wil.
 * I do not check-in local.yaml, If you need to test locally, just create
 local.yaml like gae_*.yaml with your registered fictitious domain and run
 the appropricate ant task.
+* foursquare requires a version option in protected resource url.
 
 ===1.71===

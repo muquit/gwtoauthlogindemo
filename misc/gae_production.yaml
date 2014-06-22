@@ -16,10 +16,12 @@ providers:
     app_id: 'Oxz2sUBtYWgx2AVHBz2GJGoqY'
     app_secret: 'hY2PQDn4Xw99xYaKtHNb0j6tbBAGVCQMmY0dHk0jf64qa6EvDO'
     comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
+# do not forget to select at least one API in yahoo or it will not work.
   yahoo:
     app_name: 'OAuthLoginDemo'
-    app_id: 'dj0yJmk9NkQ4NlViZmdzZ0NVJmQ9WVdrOWRrSldZblpFTkRJbWNHbzlNVGN3T0RZNE5qYzJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mNg--'
-    app_secret: 'a2708e48cda6678e1b57116940935a7192ea700e'
+    app_id: 'dj0yJmk9Wkg5V0Q0aFhobjhzJmQ9WVdrOWRHZFpUVE14Tm04bWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYg--'
+    app_secret: '2ab574d78157aa4dcd5e0308a7436c5a446cf885'
+    comment: 'registered as oauthdemo2012 Jun-16-2014'
   instagram:
     app_name: 'OAuthLoginDemo'
     app_id: '6dc706e565ef4017a597a0bf8db125f7'

@@ -18,8 +18,9 @@ providers:
     comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
   yahoo:
     app_name: 'OAuthLoginDemo'
-    app_id: 'dj0yJmk9NkQ4NlViZmdzZ0NVJmQ9WVdrOWRrSldZblpFTkRJbWNHbzlNVGN3T0RZNE5qYzJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mNg--'
-    app_secret: 'a2708e48cda6678e1b57116940935a7192ea700e'
+    app_id: 'dj0yJmk9Wm5ON2J4NG9DRjlKJmQ9WVdrOWFVbFJSRTF2Tkc4bWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03ZQ--'
+    app_secret: '81e15aff764a0c8a7f5eae921ba194597ef63717'
+    comment: 'registered as oauthdemo2012 on Jun-22-2014'
   instagram:
     app_name: 'OAuthLoginDemo'
     app_id: '078573531d0e452a80fbe881fc5947a8'

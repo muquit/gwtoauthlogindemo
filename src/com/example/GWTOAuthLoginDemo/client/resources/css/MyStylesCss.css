@@ -1,0 +1,23 @@
+.authProviderIconsStyle{
+	cursor: pointer;
+}
+
+.loginWithLabelStyle{
+    font-weight: bold;
+}
+
+/*
+** style of the close icon of dialog 
+** we must overwrite gwt theme's style 
+*/
+.closeIconStyle{
+    cursor: pointer;
+}
+
+.welcomePanelStyle{
+   height:24px;
+}
+
+.buttonsStyle{
+    margin: 2px;
+}

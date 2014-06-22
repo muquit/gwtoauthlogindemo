@@ -1,0 +1,67 @@
+--- !ruby/object:OAuthParams
+providers:
+  facebook:
+    app_name: 'OAuthLoginDemo'
+    app_id: '419645444843694'
+    app_secret: 'a19d9fa5580c3c41764931ac049b5ad2'
+    comment: 'registered as oauthlogindemo@g on Jun-22-2014'
+  google:
+    app_name: 'OAuthLoginDemo-Dev'
+    app_id: '254652073349-bbrqnfagnsdddm9ou4r84rh1bub5orlj.apps.googleusercontent.com'
+    app_secret: 'VfMokvOQ3zm66lNTzE2RkjZD'
+    scope: 'https://www.googleapis.com/auth/userinfo.profile'
+    comment: 'registered as oauthlogindemo2012 on Jun-17-2014'
+  twitter:
+    app_name: 'OAuthLoginDemo'
+    app_id: 'Oxz2sUBtYWgx2AVHBz2GJGoqY'
+    app_secret: 'hY2PQDn4Xw99xYaKtHNb0j6tbBAGVCQMmY0dHk0jf64qa6EvDO'
+    comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
+  yahoo:
+    app_name: 'OAuthLoginDemo'
+    app_id: 'dj0yJmk9NkQ4NlViZmdzZ0NVJmQ9WVdrOWRrSldZblpFTkRJbWNHbzlNVGN3T0RZNE5qYzJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mNg--'
+    app_secret: 'a2708e48cda6678e1b57116940935a7192ea700e'
+  instagram:
+    app_name: 'OAuthLoginDemo'
+    app_id: '6dc706e565ef4017a597a0bf8db125f7'
+    app_secret: '59930e58f4c948b9b3c879ca2b8cc80f'
+    comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
+  linkedin:
+    app_name: 'OAuthLoginDemo'
+    app_id: 'cpmiob5h1fsu'
+    app_secret: 'LgqI00Ckkf4xbagM'
+    user_token: 'XYZ'
+    user_secret: 'XYZ'
+    comment: 'updated as oauthdemo2012 Jun-15-2014'
+  github:
+    app_name: 'OAuthLoginDemo'
+    app_id: '3339659e33bec9abbef4'
+    app_secret: 'aff2c04c02e77cb10f296873f846b367b8136ff0'
+  flickr:
+    app_name: 'OAuthLoginDemo'
+    app_id: '4cda3073a98234ff91e1edf0f94054a1'
+    app_secret: '825fa1fad4742353'
+  imgur:
+    app_name: 'OAuthLoginDemo'
+    app_id: '5de89977fe51b0497fd485f656f2215c050c3be63'
+    app_secret: '105e221a68f6c7fd1a740b158e7c6ab3'
+  vimeo:
+    app_name: 'OAuthLoginDemo'
+    app_id: '1ca90668d87737d3b39d3f61b3eff3785e45c5a0'
+    app_secret: '0d4ea8938319892c8e5e76cec840ceea1f6a6962'
+    comment: 'updated as oauthdemo2012 Jun-16-2014'
+  evernote:
+    app_name: 'OAuthLoginDemo'
+    app_id: 'oauthdemo2012'
+    app_secret: '05aae97837ab74ee'
+  windowslive:
+    app_name: 'OAuthLoginDemo'
+    app_id: '00000000480E7C9F'
+    app_secret: '9W2yJx5ZbQm9fG6bKYeCO2td4GdJj6bT'
+  tumblrlive:
+    app_name: 'OAuthLoginDemo'
+    app_id: 'cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa'
+    app_secret: 'ZB40SOPKLZbVLSxwpK7cqvt3QlTXJlkL2l7P52ayXhAuoNu5Xl'
+  foursquare:
+    app_name: 'OAuthLoginDemo'
+    app_id: '301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ'
+    app_secret: 'D5AALHCQ0NCMXQ5VOD2PEFPTCYWLKL0ZJG0K3X25Q1E0IN52'

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GWTOAuthLoginDemo" default="help" basedir=".">
+	
+<!-- muquit@muquit.com, first cut, Nov-02-2012  -->	
+
+    <!-- Arguments to compile and run targets -->
+    <property name="gwt.args" value="" />
+
+    <!-- make sure to set GWT_DIR env var -->
+    <property environment="env"/>
+    <property name="gwt.sdk" value="${env.GWT_DIR}" />
+    <property name="webapps.dir" value="${env.WEBAPPS_DIR}" />
+    <property name="oauthparams.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/server/util/OAuthParams.java"/>
+    <property name="callbackurl.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/client/util/CallbackUrl.java"/>
+    <property name="gaetest.yaml" value="${basedir}/misc/gae_test.yaml"/>
+    <property name="gaeprod.yaml" value="${basedir}/misc/gae_production.yaml"/>
+    <property name="devlocal.yaml" value="${basedir}/misc/local.yaml"/>
+
+  <path id="project.class.path">
+    <pathelement location="war/WEB-INF/classes"/>
+    <pathelement location="${gwt.sdk}/gwt-user.jar"/>
+    <fileset dir="${gwt.sdk}" includes="gwt-dev*.jar"/>
+    <!-- Add any additional non-server libs (such as JUnit) -->
+    <fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
+  </path>
+
+  <target name="libs" description="Copy libs to WEB-INF/lib">
+    <mkdir dir="war/WEB-INF/lib" />
+    <copy todir="war/WEB-INF/lib" file="${gwt.sdk}/gwt-servlet.jar" />
+    <copy todir="war/WEB-INF/lib" file="${gwt.sdk}/gwt-servlet-deps.jar" />
+    <!-- Add any additional server libs that need to be copied -->
+  </target>
+  
+  <target name="compile" depends="checkgwtdir,clean,javac" description="GWT compile to JavaScript (production mode)">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+      <classpath>
+        <pathelement location="src"/>
+        <path refid="project.class.path"/>
+        <pathelement location="${gwt.sdk}/validation-api-1.0.0.GA.jar" />
+        <pathelement location="${gwt.sdk}validation-api-1.0.0.GA-sources.jar" />
+      </classpath>
+      <!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+      <jvmarg value="-Xmx256M"/>
+      <arg line="-war"/>
+      <arg value="war"/>
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg line="${gwt.args}"/>
+      <arg value="com.example.GWTOAuthLoginDemo.GWTOAuthLoginDemo"/>
+    </java>
+  </target>
+  
+  <target name="compile-and-run-local" depends="compile,run" description="compile and run in dev mode"/>
+  
+  <target name="javac" depends="libs" description="Compile java source to bytecode">
+    <mkdir dir="war/WEB-INF/classes"/>
+    <javac includeantruntime="false" srcdir="src" includes="**" encoding="utf-8"
+        destdir="war/WEB-INF/classes"
+        source="1.5" target="1.5" nowarn="true"
+        debug="true" debuglevel="lines,vars,source">
+      <classpath refid="project.class.path"/>
+    </javac>
+    <copy todir="war/WEB-INF/classes">
+      <fileset dir="src" excludes="**/*.java"/>
+    </copy>
+  </target>
+
+   <target name="run" depends="killdev,javac" description="Run development mode">
+    <copy file="${basedir}/log4j/log4j.properties" tofile="${basedir}/war/WEB-INF/classes/log4j.properties" overwrite="true" />
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
+      <classpath>
+        <pathelement location="src"/>
+        <path refid="project.class.path"/>
+        <pathelement location="${gwt.sdk}/validation-api-1.0.0.GA.jar" />
+        <pathelement location="$}gwt.sdk}/validation-api-1.0.0.GA-sources.jar" />
+      </classpath>
+      <jvmarg value="-Xmx256M"/>
+      <jvmarg value="-Dlog4j.ignoreTCL=true"/>
+      <arg value="-startupUrl"/>
+      <arg value="GWTOAuthLoginDemo.html"/>
+      <arg line="-war"/>
+      <arg value="war"/>
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg line="${gwt.args}"/>
+      <arg value="com.example.GWTOAuthLoginDemo.GWTOAuthLoginDemo"/>
+    </java>
+  </target>
+
+  <target name="clean" description="Cleans this project">
+    <delete dir="war/WEB-INF/classes" failonerror="false" />
+    <delete dir="war/com.example.GWTOAuthLoginDemo.GWTOAuthLoginDemo" failonerror="false" />
+    <delete dir="reports" failonerror="false" />
+    <delete file="war/GWTOAuthLoginDemo.war" failonerror="false" />
+  </target>
+
+    <target name="build" depends="compile" description="Build GWTOAuthLoginDemo project"/>
+
+    <target name="war" depends="build,copy" description="Create GWTOAuthLoginDemo.war">
+        <zip destfile="war/GWTOAuthLoginDemo.war" basedir="war"/>
+    </target>
+
+    <target name="copy">
+        <echo message="Copying log4j.properties to classes directory"/>
+        <copy file="${basedir}/log4j/log4j.properties"
+            tofile="${basedir}/war/WEB-INF/classes/log4j.properties"
+            overwrite="true"/>
+    </target>
+
+  <target name="help" description="Show help">
+    <echo>
+ Before running any of the ant tasks. Please set the GWT_DIR environemnt
+ variable to the location where GWT SK is installed.
+ 
+ Example: 
+ In Linux:
+    $ GWT_DIR=/usr/local/gwt-2.5.0; export GWT_DIR
+ MacOS X:
+    $ launchctl setenv GWT_DIR /usr/local/gwt-2.5.0
+
+ o Type: "ant -p" to see all the Ant tasks
+    </echo>
+  </target>
+
+  <target name="checkgwtdirexists">
+    <condition property="dir">
+        <available file="#{env.GWT_DIR}" type="dir"/>
+    </condition>
+  </target>
+
+  <target name="checkgwtdir" description="Check GWT_DIR env var is set or not">
+    <fail unless="env.GWT_DIR"
+        message="GWT_DIR environemnt variable is not set"/>    
+    <echo message="GWT_DIR=${env.GWT_DIR}"/>
+  </target>
+
+  <target name="checkwebappsdir" description="Check WEBAPPS_DIR env var is set or not">
+    <fail unless="env.WEBAPPS_DIR" message="WEBAPPS_DIR environemnt variable is not set"/>    
+    <echo message="WEBAPPS_DIR=${env.WEBAPPS_DIR}"/>
+  </target>
+
+  <target name="killdev" description="Kill GWT Devmode process">
+    <exec dir="${basedir}" executable="ruby">
+        <arg value="killgwtdevmode.rb"/>
+    </exec>
+  </target>
+  
+  <target name="deploy" depends="checkwebappsdir,war" description="Deploy GWTOAuthLoginDemo.war to a Servlet container">
+    <fail unless="env.WEBAPPS_DIR"
+        message="WEBAPPS_DIR environemnt variable is not set"/>    
+    <echo message="webapps directory: ${env.WEBAPPS_DIR}"/>
+    <copy file="${basedir}/war/GWTOAuthLoginDemo.war" 
+        tofile="${env.WEBAPPS_DIR}/GWTOAuthLoginDemo.war"/>
+  </target>
+  
+  <target name="gencallback-url-local" description="Generate CallbackUrl.java file for local dev">
+    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Updating: ${callbackurl.java}"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+        <arg value="gen_callback_url.rb"/>
+        <arg value="local"/>
+    </exec>
+  </target>
+
+  <target name="gencallback-url-gae-test" description="Generate CallbackUrl.java file for GAE Test">
+    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Updating: ${callbackurl.java}"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+        <arg value="gen_callback_url.rb"/>
+        <arg value="gae-test"/>
+    </exec>
+  </target>
+
+  <target name="gencallback-url-gae-prod" description="Generate CallbackUrl.java file for GAE Production">
+    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Updating: ${callbackurl.java}"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+        <arg value="gen_callback_url.rb"/>
+        <arg value="gae-prod"/>
+    </exec>
+  </target>
+
+  <target name="prepare-gae-test" depends="gencallback-url-gae-test" description="Update callback URL and OAuth parameters for GAE Test">
+    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Input file: ${gaetest.yaml}"/>
+    <echo message="Onput file: ${oauthparams.java}"/>
+    <echo message="Did you update OAuthLoginServiceImpl.java?"/>
+    <echo message="NOTE: Do not forget to refresh in eclipse!"/>
+    <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+        <arg value="yaml2java.rb"/>
+        <arg value="${gaetest.yaml}"/>
+    </exec>
+  </target>
+
+  <target name="prepare-gae-production" depends="gencallback-url-gae-prod" description="Update callback URL and OAuth parameters for GAE Production">
+    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Input file: ${gaeprod.yaml}"/>
+    <echo message="Onput file: ${oauthparams.java}"/>
+    <echo message="NOTE: Do not forget to refresh in eclipse!"/>
+    <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+        <arg value="yaml2java.rb"/>
+        <arg value="${gaeprod.yaml}"/>
+    </exec>
+  </target>
+
+  <target name="prepare-dev-local" depends="gencallback-url-local" description="Update callback URL and OAuth parameters for testing at local">
+    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Input file: ${devlocal.yaml}"/>
+    <echo message="Onput file: ${oauthparams.java}"/>
+    <echo message="NOTE: Do not forget to refresh in eclipse!"/>
+    <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
+    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+        <arg value="yaml2java.rb"/>
+        <arg value="${devlocal.yaml}"/>
+    </exec>
+  </target>
+
+</project>

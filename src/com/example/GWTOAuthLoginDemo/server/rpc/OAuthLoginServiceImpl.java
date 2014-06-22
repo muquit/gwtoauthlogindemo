@@ -267,8 +267,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 // a Scope must be specified
                 service = new ServiceBuilder()
                 .provider(LiveApi.class)
-                    .apiKey(ServerUtils.WINDOWSLIVE_APP_ID)
-                    .apiSecret(ServerUtils.WINDOWSLIVE_APP_SECRET)
+                    .apiKey(OAuthParams.WINDOWSLIVE_APP_ID)
+                    .apiSecret(OAuthParams.WINDOWSLIVE_APP_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .scope("wl.basic")
                     .build();

@@ -53,10 +53,14 @@ providers:
     app_name: 'OAuthLoginDemo'
     app_id: 'oauthdemo2012'
     app_secret: '05aae97837ab74ee'
+# microsoft's dev console is so buggy!
+# first it won't take https:// for redirect url, changed to http://
+# and chaned back to https:// worked. what a joke!
   windowslive:
     app_name: 'OAuthLoginDemo'
-    app_id: '00000000480E7C9F'
-    app_secret: '9W2yJx5ZbQm9fG6bKYeCO2td4GdJj6bT'
+    app_id: '0000000040123777'
+    app_secret: 'q3swaBVbGaUVdaqEuPPQGRX00FkZ3mVZ'
+    comment: 'registered as oauthdemo2012 on Jun-22-2014'
   tumblrlive:
     app_name: 'OAuthLoginDemo'
     app_id: 'cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa'

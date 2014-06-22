@@ -55,8 +55,9 @@ providers:
     app_secret: '05aae97837ab74ee'
   windowslive:
     app_name: 'OAuthLoginDemo'
-    app_id: '00000000480E7C9F'
-    app_secret: '9W2yJx5ZbQm9fG6bKYeCO2td4GdJj6bT'
+    app_id: '0000000040123776'
+    app_secret: 'fcsKEkXcBpa8e6VD9IpbvljbYalh6MZW'
+    comment: 'registered as oauthdemo2012 on Jun-22-2014'
   tumblrlive:
     app_name: 'OAuthLoginDemo'
     app_id: 'cmoxXXFqWm9wwkxF1MRSLW8IUseVjZndAj3Q0CkZJfJ5eZvZVa'

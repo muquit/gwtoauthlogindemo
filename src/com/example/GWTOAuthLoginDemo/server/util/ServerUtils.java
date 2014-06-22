@@ -103,9 +103,9 @@ public class ServerUtils
      ** Also look at the doc in http://msdn.microsoft.com/en-us/library/live/hh826533.aspx#requesting_info_using_rest.
      ** A Slash is missing in quite a few URLs, So c&p without checking can be a big time waster!
      **/
-    public static final String WINDOWSLIVE_APP_NAME     = "OAuthLoginDemo";
-    public static final String WINDOWSLIVE_APP_ID       = "00000000480E7C9F";
-    public static final String WINDOWSLIVE_APP_SECRET   = "9W2yJx5ZbQm9fG6bKYeCO2td4GdJj6bT";
+//    public static final String WINDOWSLIVE_APP_NAME     = "OAuthLoginDemo";
+//    public static final String WINDOWSLIVE_APP_ID       = "00000000480E7C9F";
+//    public static final String WINDOWSLIVE_APP_SECRET   = "9W2yJx5ZbQm9fG6bKYeCO2td4GdJj6bT";
     /** Windows Live ends Dec-23-2012 */
     
     /** tumblr starts Dec-23-2012 */

@@ -16,16 +16,13 @@ package com.example.GWTOAuthLoginDemo.server.rpc;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.scribe.builder.ServiceBuilder;
-import org.scribe.builder.api.FacebookApi;
 import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.Foursquare2Api;
-import org.scribe.builder.api.ImgUrApi;
 import org.scribe.builder.api.LiveApi;
 import org.scribe.builder.api.TumblrApi;
 import org.scribe.builder.api.TwitterApi;
@@ -50,12 +47,8 @@ import com.example.GWTOAuthLoginDemo.server.OAuth.Google2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Instagram2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.InstragramToken;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Linkedin2Api;
-import com.example.GWTOAuthLoginDemo.server.model.ServersideSession;
 import com.example.GWTOAuthLoginDemo.server.util.OAuthParams;
 import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
-
-
-
 
 
 
@@ -101,7 +94,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         return DEFAULT_JSON;
     }
 
-    private static final Log logger=LogFactory .getLog(OAuthLoginServiceImpl.class);
+    /* switching to java util logging for gae */
+    private static final Logger logger=Logger.getLogger(OAuthLoginServiceImpl.class.getName());
 
     private OAuthService getOAuthService(int authProvider) throws OurException
     {
@@ -374,7 +368,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         }
         catch(Exception e)
         {
-            logger.error("Exception caught: " + e);
+            logger.severe("Exception caught: " + e);
             String st = LogUtil.stackTraceToString(e);
             throw new OurException("Could not get Authorization url: " + st);
         }
@@ -729,7 +723,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 accessToken = service.getAccessToken(requestToken,verifier);
                 if (accessToken == null)
                 {
-                    logger.error("Could not get Access Token for " + authProviderName);
+                    logger.severe("Could not get Access Token for " + authProviderName);
                     throw new OurException("Could not get Access Token");
                 }
             }
@@ -859,7 +853,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             }
             catch(Exception e)
             {
-                logger.error("Could not retrieve protected resource: " + e);
+                logger.severe("Could not retrieve protected resource: " + e);
                 throw new OurException("Could not retrieve protected resource: " + e);
             }
         }

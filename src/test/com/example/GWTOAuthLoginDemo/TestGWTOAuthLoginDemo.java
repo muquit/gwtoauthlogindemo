@@ -7,10 +7,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,15 +28,12 @@ import org.scribe.oauth.OAuthService;
 
 public class TestGWTOAuthLoginDemo
 {
-    private final static Log logger=LogFactory.getLog(TestGWTOAuthLoginDemo.class);
+    private final static Logger logger = Logger.getLogger((TestGWTOAuthLoginDemo.class.getName()));
     
     @Before
     public void init() throws Exception
     {
-        BasicConfigurator.configure();
         logger.info("info");
-        logger.debug("debug");
-        logger.error("error");
     }
     
     private static Map<String,String> parseQueryString(String qs)
@@ -125,7 +120,6 @@ public class TestGWTOAuthLoginDemo
         try
         {
             System.out.println(json);
-            logger.error(gson);
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(json);
             JSONObject jsonObject = (JSONObject) obj;

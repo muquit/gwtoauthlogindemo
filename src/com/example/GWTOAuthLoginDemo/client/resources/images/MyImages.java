@@ -49,6 +49,9 @@ public interface MyImages extends ClientBundle
     
     @Source("32px/foursquare.png")
     public DataResource foursquareIconImageData();
+
+    @Source("32px/aweber.png")
+    public DataResource aweberIconImageData();
     
     @Source("32px/close.png")
     public DataResource closeIconImageData();

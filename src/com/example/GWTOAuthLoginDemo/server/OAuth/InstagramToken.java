@@ -8,9 +8,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
-public class InstragramToken
+public class InstagramToken
 {
-    private final static Log logger=LogFactory .getLog(InstragramToken.class);
+    private final static Log logger=LogFactory.getLog(InstagramToken.class);
     /*
         {
           "access_token":"263534762.8e52bda.5a03053395cc4d8ebb47a3ac43f45da2",
@@ -32,7 +32,7 @@ public class InstragramToken
     private String fullName;
     private String rawResponse;
     
-    public InstragramToken(String accessTokenJson) throws ParseException 
+    public InstagramToken(String accessTokenJson) throws ParseException 
     {
         this.rawResponse = accessTokenJson;
         parseIntragramAccessTokenJson(accessTokenJson);
@@ -53,9 +53,9 @@ public class InstragramToken
 
     }
     
-    public static InstragramToken parse(String accessTokenJson) throws ParseException
+    public static InstagramToken parse(String accessTokenJson) throws ParseException
     {
-        return new InstragramToken(accessTokenJson);
+        return new InstagramToken(accessTokenJson);
     }
 
 

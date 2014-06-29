@@ -21,8 +21,10 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
 import org.scribe.builder.ServiceBuilder;
+import org.scribe.builder.api.AWeberApi;
 import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.Foursquare2Api;
+import org.scribe.builder.api.ImgUrApi;
 import org.scribe.builder.api.LiveApi;
 import org.scribe.builder.api.TumblrApi;
 import org.scribe.builder.api.TwitterApi;
@@ -44,11 +46,17 @@ import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
 import com.example.GWTOAuthLoginDemo.server.OAuth.FacebookApiWithState;
 import com.example.GWTOAuthLoginDemo.server.OAuth.GithubApi;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Google2Api;
+import com.example.GWTOAuthLoginDemo.server.OAuth.ImgUr2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Instagram2Api;
-import com.example.GWTOAuthLoginDemo.server.OAuth.InstragramToken;
+import com.example.GWTOAuthLoginDemo.server.OAuth.InstagramToken;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Linkedin2Api;
-import com.example.GWTOAuthLoginDemo.server.util.OAuthParams;
+import com.example.GWTOAuthLoginDemo.server.OAuth.OurOAuthParams;
 import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
+
+
+
+
+
 
 
 
@@ -102,12 +110,22 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         OAuthService service = null;
         switch(authProvider)
         {
+            case ClientUtils.AWEBER:
+            {
+                service = new ServiceBuilder()
+                    .provider(AWeberApi.class)
+                    .apiKey(OurOAuthParams.AWEBER_API_KEY)
+                    .apiSecret(OurOAuthParams.AWEBER_API_SECRET)
+                    .callback(ClientUtils.getCallbackUrl())
+                    .build();
+                break;
+            }
             case ClientUtils.FACEBOOK:
             {
                 service = new ServiceBuilder()
                 .provider(FacebookApiWithState.class)
-                .apiKey(OAuthParams.FACEBOOK_APP_ID)
-                .apiSecret(OAuthParams.FACEBOOK_APP_SECRET)
+                .apiKey(OurOAuthParams.FACEBOOK_API_KEY)
+                .apiSecret(OurOAuthParams.FACEBOOK_API_SECRET)
                 .callback(ClientUtils.getCallbackUrl())
                 .build();
                 break;
@@ -118,8 +136,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 /*
                 service = new ServiceBuilder()
                     .provider(GoogleApi20.class)
-                    .apiKey(ServerUtils.GOOGLE_APP_ID)
-                    .apiSecret(ServerUtils.GOOGLE_APP_SECRET)
+                    .apiKey(ServerUtils.GOOGLE_API_KEY)
+                    .apiSecret(ServerUtils.GOOGLE_API_SECRET)
                     .scope(ServerUtils.GOOGLE_SCOPE)
                     .callback(ClientUtils.getCallbackUrl())
                     .grantType(OAuthConstants.AUTHORIZATION_CODE)
@@ -137,9 +155,9 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                  */
                 service = new ServiceBuilder()
                 .provider(Google2Api.class)
-                .apiKey(OAuthParams.GOOGLE_APP_ID)
-                .apiSecret(OAuthParams.GOOGLE_APP_SECRET)
-                .scope(OAuthParams.GOOGLE_SCOPE)
+                .apiKey(OurOAuthParams.GOOGLE_API_KEY)
+                .apiSecret(OurOAuthParams.GOOGLE_API_SECRET)
+                .scope(OurOAuthParams.GOOGLE_SCOPE)
                 .callback(ClientUtils.getCallbackUrl())
                 .build();
                 break;
@@ -149,8 +167,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                 .provider(TwitterApi.class)
-                .apiKey(OAuthParams.TWITTER_APP_ID)
-                .apiSecret(OAuthParams.TWITTER_APP_SECRET)
+                .apiKey(OurOAuthParams.TWITTER_API_KEY)
+                .apiSecret(OurOAuthParams.TWITTER_API_SECRET)
                 .callback(ClientUtils.getCallbackUrl())
                 .build();
                 break;
@@ -163,8 +181,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                  */
                 service = new ServiceBuilder()
                     .provider(YahooApi.class)
-                    .apiKey(OAuthParams.YAHOO_APP_ID)
-                    .apiSecret(OAuthParams.YAHOO_APP_SECRET)
+                    .apiKey(OurOAuthParams.YAHOO_API_KEY)
+                    .apiSecret(OurOAuthParams.YAHOO_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -175,15 +193,15 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 /*
                 service = new ServiceBuilder()
                     .provider(LinkedInApi.class)
-                    .apiKey(ServerUtils.LINKEDIN_APP_ID)
-                    .apiSecret(ServerUtils.LINKEDIN_APP_SECRET)
+                    .apiKey(ServerUtils.LINKEDIN_API_KEY)
+                    .apiSecret(ServerUtils.LINKEDIN_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 */
                 service = new ServiceBuilder()
                     .provider(Linkedin2Api.class)
-                    .apiKey(OAuthParams.LINKEDIN_APP_ID)
-                    .apiSecret(OAuthParams.LINKEDIN_APP_SECRET)
+                    .apiKey(OurOAuthParams.LINKEDIN_API_KEY)
+                    .apiSecret(OurOAuthParams.LINKEDIN_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -194,8 +212,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 /*
                 service = new ServiceBuilder()
                 .provider(InstagramApi.class)
-                    .apiKey(ServerUtils.INSTAGRAM_APP_ID)
-                    .apiSecret(ServerUtils.INSTAGRAM_APP_SECRET)
+                    .apiKey(ServerUtils.INSTAGRAM_API_KEY)
+                    .apiSecret(ServerUtils.INSTAGRAM_API_SECRET)
                     .grantType(OAuthConstants.AUTHORIZATION_CODE)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
@@ -203,8 +221,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 /* Jun-14-2014, using scribe 1.3.6 */
                 service = new ServiceBuilder()
                     .provider(Instagram2Api.class)
-                    .apiKey(OAuthParams.INSTAGRAM_APP_ID)
-                    .apiSecret(OAuthParams.INSTAGRAM_APP_SECRET)
+                    .apiKey(OurOAuthParams.INSTAGRAM_API_KEY)
+                    .apiSecret(OurOAuthParams.INSTAGRAM_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 
@@ -215,33 +233,31 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                 .provider(GithubApi.class)
-                    .apiKey(OAuthParams.GITHUB_APP_ID)
-                    .apiSecret(OAuthParams.GITHUB_APP_SECRET)
+                    .apiKey(OurOAuthParams.GITHUB_API_KEY)
+                    .apiSecret(OurOAuthParams.GITHUB_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
                 
             }
             
-            /*
             case ClientUtils.IMGUR:
             {
                 service = new ServiceBuilder()
-                .provider(ImgUrApi.class)
-                    .apiKey(ServerUtils.IMGUR_APP_ID)
-                    .apiSecret(ServerUtils.IMGUR_APP_SECRET)
+                    .provider(ImgUr2Api.class)
+                    .apiKey(OurOAuthParams.IMGUR_API_KEY)
+                    .apiSecret(OurOAuthParams.IMGUR_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
             }
-            */
             
             case ClientUtils.FLICKR:
             {
                 service = new ServiceBuilder()
                 .provider(FlickrApi.class)
-                    .apiKey(OAuthParams.FLICKR_APP_ID)
-                    .apiSecret(OAuthParams.FLICKR_APP_SECRET)
+                    .apiKey(OurOAuthParams.FLICKR_API_KEY)
+                    .apiSecret(OurOAuthParams.FLICKR_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -251,8 +267,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                 .provider(VimeoApi.class)
-                    .apiKey(OAuthParams.VIMEO_APP_ID)
-                    .apiSecret(OAuthParams.VIMEO_APP_SECRET)
+                    .apiKey(OurOAuthParams.VIMEO_API_KEY)
+                    .apiSecret(OurOAuthParams.VIMEO_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -263,8 +279,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 // a Scope must be specified
                 service = new ServiceBuilder()
                 .provider(LiveApi.class)
-                    .apiKey(OAuthParams.WINDOWSLIVE_APP_ID)
-                    .apiSecret(OAuthParams.WINDOWSLIVE_APP_SECRET)
+                    .apiKey(OurOAuthParams.WINDOWSLIVE_API_KEY)
+                    .apiSecret(OurOAuthParams.WINDOWSLIVE_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .scope("wl.basic")
                     .build();
@@ -275,8 +291,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                     .provider(TumblrApi.class)
-                    .apiKey(OAuthParams.TUMBLRLIVE_APP_ID)
-                    .apiSecret(OAuthParams.TUMBLRLIVE_APP_SECRET)
+                    .apiKey(OurOAuthParams.TUMBLRLIVE_API_KEY)
+                    .apiSecret(OurOAuthParams.TUMBLRLIVE_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -286,8 +302,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             {
                 service = new ServiceBuilder()
                     .provider(Foursquare2Api.class)
-                    .apiKey(OAuthParams.FOURSQUARE_APP_ID)
-                    .apiSecret(OAuthParams.FOURSQUARE_APP_SECRET)
+                    .apiKey(OurOAuthParams.FOURSQUARE_API_KEY)
+                    .apiSecret(OurOAuthParams.FOURSQUARE_API_SECRET)
                     .callback(ClientUtils.getCallbackUrl())
                     .build();
                 break;
@@ -322,6 +338,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             authProvider == ClientUtils.FLICKR     ||
             authProvider == ClientUtils.TUMBLR     ||
             authProvider == ClientUtils.YAHOO      ||
+            authProvider == ClientUtils.AWEBER     ||
             authProvider == ClientUtils.VIMEO)
         {
             String authProviderName = ClientUtils.getAuthProviderName(authProvider);
@@ -347,15 +364,20 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         logger.info("Getting Authorization url...");
         try
         {
+            if (requestToken != null)
+            {
+                logger.info("Using request token: " + requestToken);
+            }
             authorizationUrl = service.getAuthorizationUrl(requestToken);
-            logger.info("Authorization URL" + authorizationUrl);
+            logger.info("Got Authorization URL" + authorizationUrl);
             // if the provider supports "state", save it to session
             if (authProvider == ClientUtils.LINKEDIN   ||
                 authProvider == ClientUtils.GITHUB     ||
                 authProvider == ClientUtils.FACEBOOK   ||
+                authProvider == ClientUtils.IMGUR      ||
                 authProvider == ClientUtils.INSTAGRAM)
             {
-                logger.info("Auth URL should have state in QS");
+                logger.info("Auth URL should have state in QUERY_STRING");
                 logger.info("Extract state from URL");
                 String state = ServerUtils.getQueryStringValueFromUrl(authorizationUrl,"state");
                 if (state != null)
@@ -671,12 +693,12 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         logger.info("Verifying social usr from " + authProviderName);
         
         Token requestToken              = null;
-        InstragramToken instragramToken = null;
         String yahooGuid                = null;
         String protectedResourceUrl = ClientUtils.getProctedResourceUrl(authProvider);
         
         if (authProvider == ClientUtils.FACEBOOK  || 
             authProvider == ClientUtils.INSTAGRAM ||
+            authProvider == ClientUtils.IMGUR     ||
             authProvider == ClientUtils.LINKEDIN)
         {
             logger.info("Verifying state: " + credential.getState());
@@ -770,25 +792,42 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         
         if (authProvider == ClientUtils.INSTAGRAM)
         {
+            InstagramToken instagramToken = null;
+            
             try
             {
-                instragramToken = InstragramToken.parse(accessToken.getRawResponse());
+                instagramToken = InstagramToken.parse(accessToken.getRawResponse());
             } catch (ParseException e)
             {
                 throw new OurException("Could not parse " + authProviderName + " Json AccessToken");
             }
             logger.info("Getting Instragram Access Token");
-            logger.info(" access token" + instragramToken.getAcessToken());
-            logger.info(" userId: " + instragramToken.getUserId());
-            logger.info(" full name: " + instragramToken.getFullName());
-            logger.info(" username: " + instragramToken.getFullName());
-            logger.info(" raw: " + instragramToken.getRawResponse());
+            logger.info(" access token" + instagramToken.getAcessToken());
+            logger.info(" userId: " + instagramToken.getUserId());
+            logger.info(" full name: " + instagramToken.getFullName());
+            logger.info(" username: " + instagramToken.getFullName());
+            logger.info(" raw: " + instagramToken.getRawResponse());
             
             // replace userId and access token in protected resource url
             protectedResourceUrl = ClientUtils.getProctedResourceUrl(authProvider);
             logger.info("Instragram protected resource url: " + protectedResourceUrl);
-            protectedResourceUrl = String.format(protectedResourceUrl, instragramToken.getUserId(),instragramToken.getAcessToken());
+            protectedResourceUrl = String.format(protectedResourceUrl, instagramToken.getUserId(),instagramToken.getAcessToken());
             logger.info("Instragram protected resource url: " + protectedResourceUrl);
+        }
+        
+        if (authProvider == ClientUtils.IMGUR)
+        {
+            String jsonResponse = accessToken.getRawResponse();
+            logger.info("JSON response: " + jsonResponse);
+            JSONParser jsonParser = new JSONParser();
+            try
+            {
+                Object obj = jsonParser.parse(jsonResponse);
+            } catch (ParseException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
         
         if (authProvider == ClientUtils.GITHUB     ||
@@ -802,7 +841,6 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         
         if (authProvider == ClientUtils.YAHOO)
         {
-            //throw new OurException("Not implemented for yahoo yet!)");
             /* we need to replace <GUID> */
             yahooGuid = getQueryStringValue(accessToken.getRawResponse(),"xoauth_yahoo_guid");
             if (yahooGuid == null)
@@ -1111,6 +1149,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             }
             
             case ClientUtils.INSTAGRAM:
+                
             {
                 /* -- Instragram -- 
                 {

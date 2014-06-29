@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import com.example.GWTOAuthLoginDemo.client.model.SocialUser;
 import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
-import com.example.GWTOAuthLoginDemo.server.util.OAuthParams;
+import com.example.GWTOAuthLoginDemo.server.OAuth.OurOAuthParams;
 import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
 import com.google.gson.Gson;
 
@@ -189,8 +189,8 @@ public class TestGWTOAuthLoginDemo
     {
         OAuthService service = new ServiceBuilder()
             .provider(YahooApi.class)
-            .apiKey(OAuthParams.YAHOO_APP_ID)
-            .apiSecret(OAuthParams.YAHOO_APP_SECRET)
+            .apiKey(OurOAuthParams.YAHOO_API_KEY)
+            .apiSecret(OurOAuthParams.YAHOO_API_SECRET)
             .callback(ClientUtils.getCallbackUrl())
             .build();
         System.out.println("Getting request token");

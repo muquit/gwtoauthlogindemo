@@ -1,6 +1,8 @@
 package com.example.GWTOAuthLoginDemo.client.util;
 
 import com.example.GWTOAuthLoginDemo.client.GWTOAuthLoginDemo;
+import com.example.GWTOAuthLoginDemo.client.OAuth.OurCallbackUrl;
+import com.example.GWTOAuthLoginDemo.client.OAuth.OurProtectedUrls;
 import com.example.GWTOAuthLoginDemo.client.exception.OurException;
 import com.example.GWTOAuthLoginDemo.client.model.Credential;
 import com.example.GWTOAuthLoginDemo.client.resources.MyResources;
@@ -32,7 +34,7 @@ public class ClientUtils
        "Facebook", "Google",  "Twitter",     "Yahoo!",
        "Flickr",   "ImaGur",  "LinkedIn",    "Windows Live",
        "Instagram","github",  "Vimeo",       "Evernote",
-       "tumblr.", "foursquare",
+       "tumblr.", "foursquare","AWeber"
     };
     
     public final static int UNKNOWN  =     -1;
@@ -51,6 +53,7 @@ public class ClientUtils
     public final static int EVERNOTE     = 12;
     public final static int TUMBLR       = 13;
     public final static int FOURSQUARE   = 14;
+    public final static int AWEBER       = 15;
     
     public static String[] getAuthProviders()
     {
@@ -91,6 +94,8 @@ public class ClientUtils
             return TUMBLR;
         else if (authProviderName.equals("foursquare"))
             return FOURSQUARE;
+        else if (authProviderName.equals("aweber"))
+            return AWEBER;
         
         return authProvider;
     }
@@ -108,7 +113,7 @@ public class ClientUtils
         else if (authProvider == FLICKR)
             return "Flicker";
         else if (authProvider == IMGUR)
-            return "ImGur";
+            return "ImgUR";
         else if (authProvider == LINKEDIN)
             return "LinkedIn";
         else if (authProvider == WINDOWS_LIVE)
@@ -125,6 +130,8 @@ public class ClientUtils
             return "tumblr.";
         else if (authProvider == FOURSQUARE)
             return "foursquare";
+        else if (authProvider == AWEBER)
+            return "AWeber";
         
         return "Default";
     }
@@ -132,7 +139,7 @@ public class ClientUtils
     
     public static String getCallbackUrl()
     {
-        return CallbackUrl.APP_CALLBACK_URL;
+        return OurCallbackUrl.APP_CALLBACK_URL;
     }
     
     public static String getProctedResourceUrl(int authProvider)
@@ -141,67 +148,72 @@ public class ClientUtils
         {
             case FACEBOOK:
             {
-                return ProtectedUrls.FACEBOOK_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.FACEBOOK_PROTECTED_RESOURCE_URL;
             }
             
             case GOOGLE:
             {
-                return ProtectedUrls.GOOGLE_PROTECTED_RESOURSE_URL;
+                return OurProtectedUrls.GOOGLE_PROTECTED_RESOURSE_URL;
             }
 
             case TWITTER:
             {
-                return ProtectedUrls.TWITTER_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.TWITTER_PROTECTED_RESOURCE_URL;
             }
             
             case YAHOO:
             {
-                return ProtectedUrls.YAHOO_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.YAHOO_PROTECTED_RESOURCE_URL;
             }
             
             case LINKEDIN:
             {
-                return ProtectedUrls.LINKEDIN_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.LINKEDIN_PROTECTED_RESOURCE_URL;
             }
             
             case INSTAGRAM:
             {
-                return ProtectedUrls.INSTAGRAM_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.INSTAGRAM_PROTECTED_RESOURCE_URL;
             }
             
             case IMGUR:
             {
-                return ProtectedUrls.IMGUR_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.IMGUR_PROTECTED_RESOURCE_URL;
             }
             
             case GITHUB:
             {
-                return ProtectedUrls.GITHUB_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.GITHUB_PROTECTED_RESOURCE_URL;
             }
             
             case FLICKR:
             {
-                return ProtectedUrls.FLICKR_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.FLICKR_PROTECTED_RESOURCE_URL;
             }
             
             case VIMEO:
             {
-                return ProtectedUrls.VIMEO_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.VIMEO_PROTECTED_RESOURCE_URL;
             }
             
             case WINDOWS_LIVE:
             {
-                return ProtectedUrls.LIVE_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.LIVE_PROTECTED_RESOURCE_URL;
             }
             
             case TUMBLR:
             {
-                return ProtectedUrls.TUMBLR_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.TUMBLR_PROTECTED_RESOURCE_URL;
             }
             
             case FOURSQUARE:
             {
-                return ProtectedUrls.FOURSQUARE_PROTECTED_RESOURCE_URL;
+                return OurProtectedUrls.FOURSQUARE_PROTECTED_RESOURCE_URL;
+            }
+            
+            case AWEBER:
+            {
+                return OurProtectedUrls.AWEBER_PROTECTED_RESOURCE_URL;
             }
             
             default:
@@ -378,6 +390,7 @@ public class ClientUtils
             case FACEBOOK:
             case INSTAGRAM:
             case LINKEDIN:
+            case IMGUR:
             case GITHUB:
             {
                 Credential credential = new Credential();

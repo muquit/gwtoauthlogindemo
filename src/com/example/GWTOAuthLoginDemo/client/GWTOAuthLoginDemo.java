@@ -15,9 +15,6 @@
 package com.example.GWTOAuthLoginDemo.client;
 import java.util.Date;
 
-import org.apache.http.client.params.AuthPolicy;
-
-
 import com.allen_sauer.gwt.log.client.Log;
 import com.example.GWTOAuthLoginDemo.client.model.Credential;
 import com.example.GWTOAuthLoginDemo.client.model.SocialUser;
@@ -30,16 +27,17 @@ import com.example.GWTOAuthLoginDemo.client.ui.AppScreenLogin;
 import com.example.GWTOAuthLoginDemo.client.ui.LoginDialog;
 import com.example.GWTOAuthLoginDemo.client.ui.LoginScreen;
 import com.example.GWTOAuthLoginDemo.client.ui.MessageDialog;
-import com.example.GWTOAuthLoginDemo.client.ui.TopBar;
 import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextArea;
 
 /**
@@ -619,6 +617,47 @@ public class GWTOAuthLoginDemo implements EntryPoint
                hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("foursquare");
                getAuthorizationUrl(authProvider);
+            }
+        });
+
+        loginScreen.getImgurImage().addClickHandler(new ClickHandler()
+        {
+            @Override
+            public void onClick(ClickEvent event)
+            {
+               hideLoginDialog();
+               final int authProvider = ClientUtils.getAuthProvider("imgur");
+               getAuthorizationUrl(authProvider);
+            }
+        });       
+        /*
+         * AWeber requires paid registration to test the API, hence not
+         * supported at this time
+         */
+        /*
+        loginScreen.getAweberImage().addClickHandler(new ClickHandler()
+        {
+            @Override
+            public void onClick(ClickEvent event)
+            {
+               hideLoginDialog();
+               final int authProvider = ClientUtils.getAuthProvider("aweber");
+               getAuthorizationUrl(authProvider);
+            }
+        });
+        */
+        
+        loginScreen.getPasswordTextBox().addKeyPressHandler(new KeyPressHandler()
+        {
+            @Override
+            public void onKeyPress(KeyPressEvent event)
+            {
+                if (event.getNativeEvent().getKeyCode() == KeyCodes.KEY_ENTER)
+                {
+                    ClientUtils.clearCookies(); 
+                    ClientUtils.saveAuthProvider(ClientUtils.DEFAULT);
+                    verifySocialUser();
+                }
             }
         });
                         

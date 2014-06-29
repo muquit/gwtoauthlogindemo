@@ -41,6 +41,8 @@ public class LoginScreen extends Composite
     private Image liveImage;
     private Image tumblrImage;
     private Image foursquareImage;
+    private Image aweberImage;
+    private Image imgurImage;
     
     private TextBox usernameTextBox;
     private PasswordTextBox passwordTextBox;
@@ -191,6 +193,16 @@ public class LoginScreen extends Composite
         return foursquareImage;
     }
 
+    /*
+    public Image getAweberImage()
+    {
+        return aweberImage;
+    }
+    */
+    public Image getImgurImage()
+    {
+        return imgurImage;
+    }
 
     public LoginScreen()
     {
@@ -254,8 +266,7 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
         
-        // row 2
-        r = 2; c = 0;
+        r = 1; c = 4;
         linkedinImage = new Image(images.linkedinIconImageData().getSafeUri());
         image = linkedinImage;
         image.setStyleName(imageStyle);
@@ -263,7 +274,8 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
         
-        r = 2; c = 1;
+        // row 2
+        r = 2; c = 0;
         instagramImage = new Image(images.instagramIconImageData().getSafeUri());
         image = instagramImage;
         image.setStyleName(imageStyle);
@@ -271,7 +283,7 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);       
         
-        r = 2; c = 2;
+        r = 2; c = 1;
         vimeoImage = new Image(images.vimeoIconImageData().getSafeUri());
         image = vimeoImage;
         image.setStyleName(imageStyle);
@@ -279,7 +291,7 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
         
-        r = 2; c = 3;
+        r = 2; c = 2;
         githubImage = new Image(images.githubIconImageData().getSafeUri());
         image = githubImage;
         image.setStyleName(imageStyle);
@@ -287,8 +299,7 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
         
-        // row 3
-        r = 3; c = 0;
+        r = 2; c = 3;
         flickrImage = new Image(images.flickrIconImageData().getSafeUri());
         image = flickrImage;
         image.setStyleName(imageStyle);
@@ -296,7 +307,7 @@ public class LoginScreen extends Composite
         flexTableLeft.setWidget(r,c,image);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
         
-        r = 3; c = 1;
+        r = 2; c = 4;
         liveImage = new Image(images.liveIconImageData().getSafeUri());
         image = liveImage;
         image.setStyleName(imageStyle);
@@ -307,7 +318,8 @@ public class LoginScreen extends Composite
         flexTableLeft.getFlexCellFormatter().setColSpan(0, 0, 4);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
         
-        r = 3; c = 2;
+        // row 3
+        r = 3; c = 0;
         tumblrImage = new Image(images.tumblrIconImageData().getSafeUri());
         image = tumblrImage;
         image.setStyleName(imageStyle);
@@ -318,7 +330,7 @@ public class LoginScreen extends Composite
         flexTableLeft.getFlexCellFormatter().setColSpan(0, 0, 4);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
         
-        r = 3; c = 3;
+        r = 3; c = 1;
         foursquareImage = new Image(images.foursquareIconImageData().getSafeUri());
         image = foursquareImage;
         image.setStyleName(imageStyle);
@@ -328,6 +340,32 @@ public class LoginScreen extends Composite
         flexTableLeft.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
         flexTableLeft.getFlexCellFormatter().setColSpan(0, 0, 4);
         flexTableLeft.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+        
+        r = 3; c = 2;
+        imgurImage = new Image(images.imgurIconImageData().getSafeUri());
+        image = imgurImage;
+        image.setStyleName(imageStyle);
+        image.setTitle("Login with ImgUr");
+        flexTableLeft.setWidget(r,c,image);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+        flexTableLeft.getFlexCellFormatter().setColSpan(0, 0, 4);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+        /*
+         * AWeber requires paid registration in order to test the API,
+         * therefore, it's not supported at this time.
+         */
+        /*
+        aweberImage = new Image(images.aweberIconImageData().getSafeUri());
+        image = aweberImage;
+        image.setStyleName(imageStyle);
+        image.setTitle("Login with AWeber");
+        flexTableLeft.setWidget(r,c,image);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(r,c,har);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+        flexTableLeft.getFlexCellFormatter().setColSpan(0, 0, 4);
+        flexTableLeft.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+        */
         
         /********************** right side *******************/
         dp = new DecoratorPanel();

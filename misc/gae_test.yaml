@@ -50,8 +50,9 @@ providers:
     comment: 'registered as oauthdemo2012@yahoo, does not use redirect url'
   imgur:
     app_name: 'GWTOAuthLoginDemo'
-    api_key: '5de89977fe51b0497fd485f656f2215c050c3be63'
-    api_secret: '105e221a68f6c7fd1a740b158e7c6ab3'
+    api_key: '56bf93f2c985931'
+    api_secret: 'b218c72d27b0909dfef906ef344935c3c472d71f'
+    comment: 'registered as oauthdemo2012@gmail on Jun-29-2014'
   vimeo:
     app_name: 'GWTOAuthLoginDemo'
     api_key: '203ddd0ee75113259b70397abea323bcd506c000'
@@ -73,5 +74,6 @@ providers:
     comment: 'registered as oauthdemo2012@gmail on Jun-22-2014'
   foursquare:
     app_name: 'GWTOAuthLoginDemo'
-    api_key: '301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ'
-    api_secret: 'D5AALHCQ0NCMXQ5VOD2PEFPTCYWLKL0ZJG0K3X25Q1E0IN52'
+    api_key: '1XGKZMTKRNBDREAGDQMMBIUECBMYHEXUKMMUDBWGCIO03CYN'
+    api_secret: 'U1AL1T1HEEUPCS20PTCOWXDFA2CPVA2HI4OEBOBWQWWYJJ0A'
+    comment: 'registered as oauthdemo2012@gmail on Jun-29-2014'

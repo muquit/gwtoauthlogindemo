@@ -181,7 +181,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 case ClientUtils.IMGUR:
                 {
                     safeUri = images.imgurIconImageData().getSafeUri();
-                    tooltip += "Imgur";
+                    tooltip += "ImgUr";
                     break;
                 }
                 

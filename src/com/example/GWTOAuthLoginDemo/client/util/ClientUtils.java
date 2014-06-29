@@ -31,9 +31,9 @@ public class ClientUtils
     
     private static String[] authProviders = 
     {
-       "Facebook", "Google",  "Twitter",     "Yahoo!",
-       "Flickr",   "ImaGur",  "LinkedIn",    "Windows Live",
-       "Instagram","github",  "Vimeo",       "Evernote",
+       "Facebook", "Google",   "Twitter",     "Yahoo!",
+       "Flickr",   "ImgUr",    "LinkedIn",    "Windows Live",
+       "Instagram","github",   "Vimeo",       "Evernote",
        "tumblr.", "foursquare","AWeber"
     };
     
@@ -113,7 +113,7 @@ public class ClientUtils
         else if (authProvider == FLICKR)
             return "Flicker";
         else if (authProvider == IMGUR)
-            return "ImgUR";
+            return "ImgUr";
         else if (authProvider == LINKEDIN)
             return "LinkedIn";
         else if (authProvider == WINDOWS_LIVE)

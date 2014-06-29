@@ -19,7 +19,8 @@ public class OurProtectedUrls
 
 //    public static final String IMGUR_PROTECTED_RESOURCE_URL     = "http://api.imgur.com/2/account.json";
     // %s is returned username and must be replaced by the caller
-    public static final String IMGUR_PROTECTED_RESOURCE_URL     = "https://api.imgur.com/3/account/%s";
+//    public static final String IMGUR_PROTECTED_RESOURCE_URL     = "https://api.imgur.com/3/account.json";
+    public static final String IMGUR_PROTECTED_RESOURCE_URL     = "https://api.imgur.com/3/account/";
     public static final String GITHUB_PROTECTED_RESOURCE_URL    = "https://api.github.com/user?access_token=%s";
     public static final String LIVE_PROTECTED_RESOURCE_URL      = "https://apis.live.net/v5.0/me";
     public static final String FLICKR_PROTECTED_RESOURCE_URL    = "https://api.flickr.com/services/rest?format=json&nojsoncallback=1&method=flickr.test.login";

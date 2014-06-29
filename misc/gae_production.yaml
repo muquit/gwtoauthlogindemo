@@ -79,5 +79,6 @@ providers:
     comment: 'registered as oauthdemo2012@gmail on Jun-22-2014'
   foursquare:
     app_name: 'GWTOAuthLoginDemo'
-    api_key: '301QER4O2VJ2P35F4IX2VKAYPPE0UBF4GVDCSC1HCS3TW5FQ'
-    api_secret: 'D5AALHCQ0NCMXQ5VOD2PEFPTCYWLKL0ZJG0K3X25Q1E0IN52'
+    api_key: 'RCYZYRNVMI34TNKE5054JMFNLFKTKNOSLPT34GN4IZM215PF'
+    api_secret: 'NJQGUFMW2M5JGCDPOONTOBXKXSGL4WY4QXZXNFUGPGRCNX2M'
+    comment: 'registered as oauthdemo2012@gmail on Jun-29-2014'

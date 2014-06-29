@@ -24,7 +24,6 @@ import org.scribe.builder.ServiceBuilder;
 import org.scribe.builder.api.AWeberApi;
 import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.Foursquare2Api;
-import org.scribe.builder.api.ImgUrApi;
 import org.scribe.builder.api.LiveApi;
 import org.scribe.builder.api.TumblrApi;
 import org.scribe.builder.api.TwitterApi;
@@ -675,6 +674,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         
         
         String url = getProtectedResourceUrlFromSession();
+        logger.info("protected url: " + url);
         OAuthRequest request = new OAuthRequest(Verb.GET,url);
         // sign the request
         service.signRequest(accessToken,request);
@@ -767,7 +767,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             ** probably some kind of salted hash. We're just hard coding
             ** "test" and "secret" for the demo.
             */
-            logger.info("Handing default loign..");
+            logger.info("Handing default login..");
             String username = credential.getLoginName();
             String password = credential.getPassword();
             if (username == null)
@@ -1148,8 +1148,29 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                 }
             }
             
-            case ClientUtils.INSTAGRAM:
+            case ClientUtils.IMGUR:
+            {
+                try
+                {
+                    logger.info("ImgUr JSON: " + json);
+                   obj = jsonParser.parse(json);
+                    JSONObject jsonObj = (JSONObject) obj;
+                    // get profile object
+                    JSONObject jsonObjData = (JSONObject) jsonObj.get("data");
                 
+                    socialUser.setJson(json);
+                    socialUser.setName((String) jsonObjData.get("username"));
+                    
+                    return socialUser;
+ 
+                }
+                catch (ParseException e)
+                {
+                  throw new OurException("Could not parse JSON data from " + authProviderName + ":" + e.getMessage());
+                }
+            }
+            
+            case ClientUtils.INSTAGRAM:
             {
                 /* -- Instragram -- 
                 {

@@ -1,5 +1,7 @@
 package com.example.GWTOAuthLoginDemo.server.OAuth;
 
+import java.util.logging.Logger;
+
 import org.scribe.builder.api.DefaultApi20;
 import org.scribe.extractors.AccessTokenExtractor;
 import org.scribe.extractors.JsonTokenExtractor;
@@ -24,6 +26,7 @@ import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
 public class ImgUr2Api extends DefaultApi20
 {
     private static final String AUTHORIZATION_URL = "https://api.imgur.com/oauth2/authorize?response_type=code&client_id=%s&state=%s";
+    private static final Logger logger=Logger.getLogger(ImgUr2Api.class.getName());
 
     @Override
     public String getAccessTokenEndpoint()
@@ -77,6 +80,7 @@ public class ImgUr2Api extends DefaultApi20
             {
                 case POST:
                 {
+                    logger.info("getAccessToken: POST");
                     request.addBodyParameter(OAuthConstants.CLIENT_ID, config.getApiKey());
                     request.addBodyParameter(OAuthConstants.CLIENT_SECRET, config.getApiSecret());
                     request.addBodyParameter(OAuthConstants.CODE, verifier.getValue());
@@ -87,6 +91,7 @@ public class ImgUr2Api extends DefaultApi20
                 case GET:
                 default:
                 {
+                    logger.info("getAccessToken: GET");
                     request.addQuerystringParameter(OAuthConstants.CLIENT_ID, config.getApiKey());
                     request.addQuerystringParameter(OAuthConstants.CLIENT_SECRET, config.getApiSecret());
                     request.addQuerystringParameter(OAuthConstants.CODE, verifier.getValue());

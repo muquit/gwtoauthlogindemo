@@ -620,6 +620,10 @@ public class GWTOAuthLoginDemo implements EntryPoint
             }
         });
 
+        /*
+         * ImgUr API is super buggy. dropping it.
+         */
+        /*
         loginScreen.getImgurImage().addClickHandler(new ClickHandler()
         {
             @Override
@@ -630,6 +634,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
                getAuthorizationUrl(authProvider);
             }
         });       
+        */
         /*
          * AWeber requires paid registration to test the API, hence not
          * supported at this time

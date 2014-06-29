@@ -45,16 +45,11 @@ import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
 import com.example.GWTOAuthLoginDemo.server.OAuth.FacebookApiWithState;
 import com.example.GWTOAuthLoginDemo.server.OAuth.GithubApi;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Google2Api;
-import com.example.GWTOAuthLoginDemo.server.OAuth.ImgUr2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Instagram2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.InstagramToken;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Linkedin2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.OurOAuthParams;
 import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
-
-
-
-
 
 
 
@@ -238,17 +233,6 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                     .build();
                 break;
                 
-            }
-            
-            case ClientUtils.IMGUR:
-            {
-                service = new ServiceBuilder()
-                    .provider(ImgUr2Api.class)
-                    .apiKey(OurOAuthParams.IMGUR_API_KEY)
-                    .apiSecret(OurOAuthParams.IMGUR_API_SECRET)
-                    .callback(ClientUtils.getCallbackUrl())
-                    .build();
-                break;
             }
             
             case ClientUtils.FLICKR:

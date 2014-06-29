@@ -14,7 +14,6 @@ import org.junit.Test;
 
 import com.example.GWTOAuthLoginDemo.client.model.SocialUser;
 import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
-import com.example.GWTOAuthLoginDemo.server.OAuth.ImgUr2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.Instagram2Api;
 import com.example.GWTOAuthLoginDemo.server.OAuth.OurOAuthParams;
 import com.example.GWTOAuthLoginDemo.server.util.ServerUtils;
@@ -205,21 +204,6 @@ public class TestGWTOAuthLoginDemo
         {
             System.out.println("Exception: " + e);
         }
-    }
-    
-    @Test
-    public void testImgUR()
-    {
-        OAuthService service = new ServiceBuilder()
-            .provider(ImgUr2Api.class)
-            .apiKey(OurOAuthParams.IMGUR_API_KEY)
-            .apiSecret(OurOAuthParams.IMGUR_API_SECRET)
-            .callback(ClientUtils.getCallbackUrl())
-            .build();
-        
-        Token requestToken = null;
-        String authorizationUrl = service.getAuthorizationUrl(requestToken);
-        logger.info("authorization url: " + authorizationUrl);
     }
     
     @Test

@@ -23,39 +23,34 @@ import com.google.gwt.user.client.ui.HasVerticalAlignment;
 public class AppScreen extends Composite
 {
     private VerticalPanel verticalPanel;
-    private FlexTable flexTable;
-    //private HTML lblWelcome;
-    private TextArea textArea;
+    
+    // both of the vertical panels are on a deck panel
+    private VerticalPanel vp1; // holds login screen + text area with buttons
+    private VerticalPanel vp2; // holds only the text area with buttons
+
+    private FlexTable       flexTable;
+    private TextArea        textArea;
     private HorizontalPanel horizontalPanel;
-    private Button btnClear;
-    private Button btnMe;
-    private ScrollPanel scrollPanel;
-    private Button btnAccessToken;
-    private Label lblLoggedInAs;
-    private Image authProviderImage;
-    private Button btnAbout;
+    private Button          btnClear;
+    private Button          btnMe;
+    private ScrollPanel     scrollPanel;
+    private Button          btnAccessToken;
+    private Label           lblLoggedInAs;
+    private Image           authProviderImage;
+    private Button          btnAbout;
     
-    private Anchor loginAnchor;
-    private Anchor logoutAnchor;
-    private DeckPanel deckPanel;
+//    private Anchor          loginAnchor;
+//    private Anchor          logoutAnchor;
+    private DeckPanel       deckPanel;
+    private LoginScreen     loginScreen;
     
-    private TopBar topBar;
+    private TopBar          topBar;
     
     
-    /*
-    public HTML getLblWelcome()
-    {
-        return lblWelcome;
-    }
-    */
-
-
     public TextArea getTextArea()
     {
         return textArea;
     }
-
-
 
     public Button getBtnClear()
     {
@@ -69,6 +64,7 @@ public class AppScreen extends Composite
     }
 
 
+    /*
     public Anchor getLoginAnchor()
     {
         return loginAnchor;
@@ -78,7 +74,9 @@ public class AppScreen extends Composite
     {
         return logoutAnchor;
     }
+    */
     
+    /*
     public void showLoginAnchor()
     {
         deckPanel.showWidget(0);
@@ -88,6 +86,7 @@ public class AppScreen extends Composite
     {
         deckPanel.showWidget(1);
     }
+    */
 
     public ScrollPanel getScrollPanel()
     {
@@ -122,7 +121,25 @@ public class AppScreen extends Composite
     {
         topBar.setWelcomeLabel(html);
     }
+    
+    public TopBar getTopBar()
+    {
+        return topBar;
+    }
 
+    public LoginScreen getLoginScreen()
+    {
+        return loginScreen;
+    }
+    
+    public void showAppScreenWithLoginScreen()
+    {
+        deckPanel.showWidget(0);
+    }
+    public void showAppScreenWithoutLoginScreen()
+    {
+        deckPanel.showWidget(1);
+    }
 
     public static MyStylesCss css = MyResources.INSTANCE.css();
     public AppScreen()
@@ -136,38 +153,53 @@ public class AppScreen extends Composite
         topBar = new TopBar();
         verticalPanel.add(topBar);
         
+        loginScreen = new LoginScreen();
+        
         flexTable = new FlexTable();
+        flexTable.setWidth("100%");
         verticalPanel.add(flexTable);
         
         int row = 0; int col = 0;
-        /*
-        lblWelcome = new HTML();
-        lblWelcome.setWordWrap(false);
-        flexTable.setWidget(row, col, lblWelcome);
-        */
+        
         deckPanel = new DeckPanel();
-        
-        loginAnchor = new Anchor("Login");
-        loginAnchor.setTitle("Please Login to see protected resource");
-        loginAnchor.setWordWrap(false);
-        deckPanel.add(loginAnchor);
-        
-        logoutAnchor = new Anchor("Logout");
-        logoutAnchor.setWordWrap(false);
-        deckPanel.add(logoutAnchor);
+        verticalPanel.add(deckPanel);
+
+        vp1 = new VerticalPanel();
+        vp2 = new VerticalPanel();
+        vp1.setWidth("100%");
+        deckPanel.add(vp1);
+        deckPanel.add(vp2);
+
         deckPanel.showWidget(0);
         
+        vp1.add(loginScreen); // XXXX
+        
+//        loginAnchor = new Anchor("Login");
+//        loginAnchor.setTitle("Please Login to see protected resource");
+//        loginAnchor.setWordWrap(false);
+//       deckPanel.add(loginAnchor);
+        
+//        logoutAnchor = new Anchor("Logout");
+//        logoutAnchor.setWordWrap(false);
+//        deckPanel.add(logoutAnchor);
+//        deckPanel.showWidget(0);
+        
+//        row = 0; col = 0;
+//        flexTable.setWidget(row, col, deckPanel);
+        vp1.add(flexTable);
+        vp2.add(flexTable);
+        
+        
         row = 0; col = 0;
-        flexTable.setWidget(row, col, deckPanel);
-        flexTable.setWidth("100%");
-        
-        
-        row = 1; col = 0;
         horizontalPanel = new HorizontalPanel();
         horizontalPanel.setSpacing(4);
         flexTable.setWidget(row, col, horizontalPanel);
         
         btnMe = new Button("me");
+        btnMe.removeStyleName("gwt-Button");
+        btnMe.setStyleName("button");
+        btnMe.addStyleName("blue");
+        
         horizontalPanel.add(btnMe);
         btnMe.setWidth("110px");
         btnMe.setStyleName(css.buttonsStyle());
@@ -209,7 +241,9 @@ public class AppScreen extends Composite
         flexTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
         flexTable.getCellFormatter().setVerticalAlignment(0, 0, HasVerticalAlignment.ALIGN_TOP);
     }
-    public HorizontalPanel getHorizontalPanel() {
+
+    public HorizontalPanel getHorizontalPanel()
+    {
         return horizontalPanel;
     }
 }

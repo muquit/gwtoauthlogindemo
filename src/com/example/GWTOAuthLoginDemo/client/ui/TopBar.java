@@ -8,11 +8,11 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 public class TopBar extends Composite
 {
     private HorizontalPanel horizontalPanel;
-    /*
-    private Anchor loginAnchor;
+
+//    private Anchor loginAnchor;
     private Anchor logoutAnchor;
-    private DeckPanel deckPanel;
-    */
+//    private DeckPanel deckPanel;
+
     private HTML lblWelcome;
 
     public HorizontalPanel getHorizontalPanel()
@@ -40,14 +40,24 @@ public class TopBar extends Composite
         lblWelcome.setHTML(html);
     }
 
+    public Anchor getLogoutAnchor()
+    { 
+        return logoutAnchor;
+    }
+    public void showLogoutAnchor()
+    { 
+        logoutAnchor.setVisible(true);
+    }
+
+    public void hideLogoutAnchor()
+    {
+        logoutAnchor.setVisible(false);
+    }
+
     /*
      * public Anchor getLoginAnchor() { return loginAnchor; }
      * 
-     * public Anchor getLogoutAnchor() { return logoutAnchor; }
      * 
-     * public void showLoginAnchor() { deckPanel.showWidget(0); }
-     * 
-     * public void showLogutAnchor() { deckPanel.showWidget(1); }
      */
     public TopBar()
     {
@@ -55,7 +65,24 @@ public class TopBar extends Composite
         horizontalPanel.setStyleName("topBar");
         initWidget(horizontalPanel);
         horizontalPanel.setWidth("100%");
-        setHorizontalPanelSpacing(6);
+        setHorizontalPanelSpacing(3);
+        
+        /****/
+//        deckPanel = new DeckPanel(); horizontalPanel.add(deckPanel);
+//        horizontalPanel.add(deckPanel);
+          
+//        loginAnchor = new Anchor("Login"); loginAnchor.setWordWrap(false);
+//        deckPanel.add(loginAnchor);
+          
+//        logoutAnchor = new Anchor("Logout"); logoutAnchor.setWordWrap(false);
+//        deckPanel.add(logoutAnchor);
+//        deckPanel.showWidget(0);
+        /****/
+        logoutAnchor = new Anchor("Logout");
+        logoutAnchor.setWordWrap(false);
+        logoutAnchor.setVisible(false);
+        horizontalPanel.add(logoutAnchor);
+        
         lblWelcome=new HTML();
         horizontalPanel.add(lblWelcome);
         /*

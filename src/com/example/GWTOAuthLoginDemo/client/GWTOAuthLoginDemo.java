@@ -27,6 +27,7 @@ import com.example.GWTOAuthLoginDemo.client.ui.AppScreenLogin;
 import com.example.GWTOAuthLoginDemo.client.ui.LoginDialog;
 import com.example.GWTOAuthLoginDemo.client.ui.LoginScreen;
 import com.example.GWTOAuthLoginDemo.client.ui.MessageDialog;
+import com.example.GWTOAuthLoginDemo.client.ui.TopBar;
 import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -50,17 +51,12 @@ public class GWTOAuthLoginDemo implements EntryPoint
     private final String VERSION_STRING_PLAIN = "GWTOAuthLoginDemo v" +  VERSION;
     private final String WELCOME_STRING = "Welcome to " + VERSION_STRING;
     
-    private final int APPSCREEN_MAIN  = 1;
-    private final int APPSCREEN_LOGIN = 2;
-    
     private static GWTOAuthLoginDemo singleton;
     
    
-    AppScreen   appScreen         = new AppScreen();
-    LoginDialog loginDialog       = null;
+    AppScreen appScreen           = new AppScreen();
+    LoginScreen loginScreen       = appScreen.getLoginScreen();
     MessageDialog messageDialog   = new MessageDialog(VERSION_STRING_PLAIN);
-    AppScreenLogin appScreenLogin = new AppScreenLogin();
-    LoginScreen loginScreen       = appScreenLogin.getLoginScreen();
     
     public static GWTOAuthLoginDemo get()
     {
@@ -73,28 +69,10 @@ public class GWTOAuthLoginDemo implements EntryPoint
         Log.info("Loading app..");
         setupMainScreenHandlers();
         setupLoginScreenHandlers();
-        showApp(APPSCREEN_MAIN);
+        showApp();
         handleRedirect();
         updateLoginStatus();
     }
-    
-    private void showLoginScreen()
-    {
-        showApp(APPSCREEN_LOGIN);
-    }
-    
-    @Deprecated
-    private void showLoginDialog()
-    {
-        if (loginDialog != null)
-        {
-            loginDialog.setPopupPosition(100,100);
-            loginDialog.setGlassEnabled(true);
-            loginDialog.setAnimationEnabled(true);
-            loginDialog.show();
-        }
-    }
-    
     
     public void updateLoginStatus()
     {
@@ -114,12 +92,13 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void showLogoutAnchor()
     {
-        appScreen.showLogoutAnchor();
+        appScreen.getTopBar().showLogoutAnchor();
+        appScreen.showAppScreenWithoutLoginScreen();
     }
     
     private void showLoginAchor()
     {
-        appScreen.showLoginAnchor();
+        appScreen.showAppScreenWithLoginScreen();
         updateWelcomeLabel(WELCOME_STRING);
     }
     
@@ -297,7 +276,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             }
             else
             {
-                hideLoginDialog();
                 /*
                 if (loginDialog == null)
                 {
@@ -406,13 +384,13 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void setupMainScreenHandlers()
     {
+        /*
         appScreen.getLoginAnchor().addClickHandler(new ClickHandler()
         {
             @Override
             public void onClick(ClickEvent event)
             {
                 showLoginScreen();
-                //showLoginDialog();
             }
         });
         
@@ -425,6 +403,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 ClientUtils.logout();
             }
         });
+        */
         
         appScreen.getBtnMe().addClickHandler(new ClickHandler()
         {
@@ -465,6 +444,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void setupLoginScreenHandlers()
     {
+        /*
         appScreenLogin.getHomeAnchor().addClickHandler(new ClickHandler()
         {
             @Override
@@ -473,13 +453,13 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 showApp(APPSCREEN_MAIN);
             }
         });
+        */
         
         loginScreen.getFacebookImage().addClickHandler(new ClickHandler()
         {
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Facebook");
                getAuthorizationUrl(authProvider);
             }
@@ -490,7 +470,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Google");
                getAuthorizationUrl(authProvider);
             }
@@ -501,7 +480,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Twitter");
                getAuthorizationUrl(authProvider);
             }
@@ -512,7 +490,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Yahoo!");
                getAuthorizationUrl(authProvider);
             }
@@ -523,7 +500,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Linkedin");
                getAuthorizationUrl(authProvider);
             }
@@ -534,7 +510,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Instagram");
                getAuthorizationUrl(authProvider);
             }
@@ -545,7 +520,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Vimeo");
                getAuthorizationUrl(authProvider);
             }
@@ -570,7 +544,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("github");
                getAuthorizationUrl(authProvider);
             }
@@ -581,7 +554,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("flickr");
                getAuthorizationUrl(authProvider);
             }
@@ -592,7 +564,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("Windows Live");
                getAuthorizationUrl(authProvider);
             }
@@ -603,7 +574,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("tumblr.");
                getAuthorizationUrl(authProvider);
             }
@@ -614,7 +584,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             @Override
             public void onClick(ClickEvent event)
             {
-               hideLoginDialog();
                final int authProvider = ClientUtils.getAuthProvider("foursquare");
                getAuthorizationUrl(authProvider);
             }
@@ -682,19 +651,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
             }
         });
         
-    }
-    
-    private void hideLoginDialog()
-    {
-        if (loginDialog != null)
-        {
-            loginDialog.hide();
-        }                
-        else
-        {
-            // we're using login screen
-            showApp(APPSCREEN_MAIN);
-        }
     }
     
     private void notImplementedYet(String html)
@@ -966,23 +922,12 @@ public class GWTOAuthLoginDemo implements EntryPoint
         showMessage(aboutMessage);
     }
     
-    private void showApp(int what)
+    private void showApp()
     {
         Window.setMargin("0px");
         RootLayoutPanel rootLayoutPanel = RootLayoutPanel.get();
         rootLayoutPanel.clear();
-        if (what == APPSCREEN_MAIN)
-        {
-            appScreen.setWidth("100%");
-            rootLayoutPanel.add(appScreen);
-        }
-        else
-        {
-            String html = WELCOME_STRING;
-            appScreenLogin.setWidth("100%");
-            appScreenLogin.updateWecomeLabel(html);
-            appScreenLogin.resetLoginParams();
-            rootLayoutPanel.add(appScreenLogin);
-        }
+        appScreen.setWidth("100%");
+        rootLayoutPanel.add(appScreen);
     }
 }

@@ -1,7 +1,8 @@
 --- !ruby/object:OAuthParams
 #
 # This file is used to generated OAuth parameters for production use in
-# Google App Engine. DO NOT MODIFY
+# Google App Engine.
+redirect_url: 'https://gwtoauthlogindemo-latest.appspot.com/GWTOAuthLoginDemo.html'
 providers:
   aweber:
     app_name: 'GWTOAuthLoginDemo'

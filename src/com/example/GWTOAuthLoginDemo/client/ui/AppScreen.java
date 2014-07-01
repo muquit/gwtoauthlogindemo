@@ -152,10 +152,6 @@ public class AppScreen extends Composite
         flexTable.setWidget(row, col, horizontalPanel);
         
         btnMe = new Button("me");
-        btnMe.removeStyleName("gwt-Button");
-        btnMe.setStyleName("button");
-        btnMe.addStyleName("blue");
-        
         horizontalPanel.add(btnMe);
         btnMe.setWidth("110px");
         btnMe.setStyleName(css.buttonsStyle());

@@ -12,9 +12,9 @@
     <property name="webapps.dir" value="${env.WEBAPPS_DIR}" />
     <property name="oauthparams.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/server/OAuth/OurOAuthParams.java"/>
     <property name="callbackurl.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/client/OAuth/OurCallbackUrl.java"/>
-    <property name="gaetest.yaml" value="${basedir}/misc/gae_test.yaml"/>
-    <property name="gaeprod.yaml" value="${basedir}/misc/gae_production.yaml"/>
-    <property name="devlocal.yaml" value="${basedir}/misc/local.yaml"/>
+    <property name="gaetest.yaml" value="${basedir}/private/gae_test.yaml"/>
+    <property name="gaeprod.yaml" value="${basedir}/private/gae_production.yaml"/>
+    <property name="devlocal.yaml" value="${basedir}/private/local.yaml"/>
 
   <path id="project.class.path">
     <pathelement location="war/WEB-INF/classes"/>

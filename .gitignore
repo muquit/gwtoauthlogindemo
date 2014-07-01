@@ -12,7 +12,6 @@ tmp/
 .cproject
 *~.nib
 .gradle
-local.yaml
 .gwt
 gwt-unitCache
 *.swp
@@ -26,3 +25,7 @@ gwt-unitCache
 */war/WEB-INF/classes
 */war/WEB-INF/deploy
 *~
+NOTES.txt
+private/local.yaml
+private/gae_test.yaml
+private/gae_production.yaml

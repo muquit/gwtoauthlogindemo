@@ -8,9 +8,11 @@
 ########################################################################
 class OAuthParams
   VERSIN = "1.0.1"
+  attr_accessor :redirect_url
   attr_accessor :providers
   attr_accessor :params
   def initialize
+    self.redirect_url = ''
     self.providers = {}
     self.params = {}
   end

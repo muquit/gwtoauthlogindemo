@@ -1,4 +1,5 @@
 --- !ruby/object:OAuthParams
+redirect_url: 'https://gwtoauthlogindemo-test.appspot.com/GWTOAuthLoginDemo.html'
 providers:
   aweber:
     app_name: 'GWTOAuthLoginDemo'

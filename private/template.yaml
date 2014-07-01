@@ -1,0 +1,75 @@
+--- !ruby/object:OAuthParams
+########################################################################
+# Please register your Application with each of the OAuth provider
+# and update this file. Then run the appropriate ant tasks to generate
+# Java code
+########################################################################
+providers:
+  facebook:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  flickr:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  foursquare:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  github:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  google:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    scope: 'Your scope'
+    comment: 'Your comment'
+  imgur:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  instagram:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  linkedin:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    user_token: 'Your user_token'
+    user_secret: 'Your user_secret'
+    comment: 'Your comment'
+  tumblrlive:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  twitter:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  vimeo:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  windowslive:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  yahoo:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'

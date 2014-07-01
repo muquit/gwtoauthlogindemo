@@ -23,11 +23,8 @@ import com.example.GWTOAuthLoginDemo.client.resources.images.MyImages;
 import com.example.GWTOAuthLoginDemo.client.rpc.MyAsyncCallback;
 import com.example.GWTOAuthLoginDemo.client.rpc.OAuthLoginService;
 import com.example.GWTOAuthLoginDemo.client.ui.AppScreen;
-import com.example.GWTOAuthLoginDemo.client.ui.AppScreenLogin;
-import com.example.GWTOAuthLoginDemo.client.ui.LoginDialog;
 import com.example.GWTOAuthLoginDemo.client.ui.LoginScreen;
 import com.example.GWTOAuthLoginDemo.client.ui.MessageDialog;
-import com.example.GWTOAuthLoginDemo.client.ui.TopBar;
 import com.example.GWTOAuthLoginDemo.client.util.ClientUtils;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -84,21 +81,24 @@ public class GWTOAuthLoginDemo implements EntryPoint
         }
         else
         {
-            //log("Showing Login anchor..");
-            showLoginAchor();
+            log("Show login screen");
+            showLoginScreen();
         }
         updateLoginLabel();
     }
     
     private void showLogoutAnchor()
     {
+        Log.info("Showing Logout anchor");
         appScreen.getTopBar().showLogoutAnchor();
-        appScreen.showAppScreenWithoutLoginScreen();
+        Log.info("Showing app screen without login screen");
+        appScreen.getLoginScreen().setVisible(false);
     }
     
-    private void showLoginAchor()
+    private void showLoginScreen()
     {
-        appScreen.showAppScreenWithLoginScreen();
+        log("Showing app screen with login screen");
+        appScreen.getLoginScreen().setVisible(true);
         updateWelcomeLabel(WELCOME_STRING);
     }
     
@@ -393,8 +393,9 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 showLoginScreen();
             }
         });
+        */
         
-        appScreen.getLogoutAnchor().addClickHandler(new ClickHandler()
+        appScreen.getTopBar().getLogoutAnchor().addClickHandler(new ClickHandler()
         {
             @Override
             public void onClick(ClickEvent event)
@@ -403,7 +404,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 ClientUtils.logout();
             }
         });
-        */
         
         appScreen.getBtnMe().addClickHandler(new ClickHandler()
         {

@@ -1,12 +1,10 @@
 package com.example.GWTOAuthLoginDemo.client.ui;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.example.GWTOAuthLoginDemo.client.resources.MyResources;
 import com.example.GWTOAuthLoginDemo.client.resources.css.MyStylesCss;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DeckPanel;
-import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -24,10 +22,6 @@ public class AppScreen extends Composite
 {
     private VerticalPanel verticalPanel;
     
-    // both of the vertical panels are on a deck panel
-    private VerticalPanel vp1; // holds login screen + text area with buttons
-    private VerticalPanel vp2; // holds only the text area with buttons
-
     private FlexTable       flexTable;
     private TextArea        textArea;
     private HorizontalPanel horizontalPanel;
@@ -38,9 +32,6 @@ public class AppScreen extends Composite
     private Label           lblLoggedInAs;
     private Image           authProviderImage;
     private Button          btnAbout;
-    
-//    private Anchor          loginAnchor;
-//    private Anchor          logoutAnchor;
     private DeckPanel       deckPanel;
     private LoginScreen     loginScreen;
     
@@ -62,31 +53,6 @@ public class AppScreen extends Composite
     {
         return btnMe;
     }
-
-
-    /*
-    public Anchor getLoginAnchor()
-    {
-        return loginAnchor;
-    }
-
-    public Anchor getLogoutAnchor()
-    {
-        return logoutAnchor;
-    }
-    */
-    
-    /*
-    public void showLoginAnchor()
-    {
-        deckPanel.showWidget(0);
-    }
-    
-    public void showLogoutAnchor()
-    {
-        deckPanel.showWidget(1);
-    }
-    */
 
     public ScrollPanel getScrollPanel()
     {
@@ -134,11 +100,13 @@ public class AppScreen extends Composite
     
     public void showAppScreenWithLoginScreen()
     {
-        deckPanel.showWidget(0);
+ //       deckPanel.showWidget(0);
     }
     public void showAppScreenWithoutLoginScreen()
     {
-        deckPanel.showWidget(1);
+        Log.info("Visible widget: " + deckPanel.getVisibleWidget());
+ //       deckPanel.showWidget(1);
+        Log.info("Visible widget: " + deckPanel.getVisibleWidget());
     }
 
     public static MyStylesCss css = MyResources.INSTANCE.css();
@@ -154,26 +122,15 @@ public class AppScreen extends Composite
         verticalPanel.add(topBar);
         
         loginScreen = new LoginScreen();
+        verticalPanel.add(loginScreen);
         
         flexTable = new FlexTable();
         flexTable.setWidth("100%");
-        verticalPanel.add(flexTable);
         
         int row = 0; int col = 0;
         
-        deckPanel = new DeckPanel();
-        verticalPanel.add(deckPanel);
+        verticalPanel.add(flexTable);
 
-        vp1 = new VerticalPanel();
-        vp2 = new VerticalPanel();
-        vp1.setWidth("100%");
-        deckPanel.add(vp1);
-        deckPanel.add(vp2);
-
-        deckPanel.showWidget(0);
-        
-        vp1.add(loginScreen); // XXXX
-        
 //        loginAnchor = new Anchor("Login");
 //        loginAnchor.setTitle("Please Login to see protected resource");
 //        loginAnchor.setWordWrap(false);
@@ -186,9 +143,8 @@ public class AppScreen extends Composite
         
 //        row = 0; col = 0;
 //        flexTable.setWidget(row, col, deckPanel);
-        vp1.add(flexTable);
-        vp2.add(flexTable);
         
+//        deckPanel.showWidget(0);
         
         row = 0; col = 0;
         horizontalPanel = new HorizontalPanel();
@@ -229,7 +185,7 @@ public class AppScreen extends Composite
         authProviderImage.setAltText("Logged in using");
         horizontalPanel.add(authProviderImage);
         
-        row = 2; col = 0;
+        row = 1; col = 0;
         scrollPanel = new ScrollPanel();
         scrollPanel.scrollToBottom();
         flexTable.setWidget(row, col, scrollPanel);
@@ -240,6 +196,9 @@ public class AppScreen extends Composite
         textArea.setSize("99%", "400px");
         flexTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
         flexTable.getCellFormatter().setVerticalAlignment(0, 0, HasVerticalAlignment.ALIGN_TOP);
+
+
+ 
     }
 
     public HorizontalPanel getHorizontalPanel()

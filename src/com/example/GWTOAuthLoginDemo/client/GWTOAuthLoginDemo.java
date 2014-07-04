@@ -81,7 +81,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
         }
         else
         {
-            log("Show login screen");
             showLoginScreen();
         }
         updateLoginLabel();
@@ -89,15 +88,12 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void showLogoutAnchor()
     {
-        Log.info("Showing Logout anchor");
         appScreen.getTopBar().showLogoutAnchor();
-        Log.info("Showing app screen without login screen");
         appScreen.getLoginScreen().setVisible(false);
     }
     
     private void showLoginScreen()
     {
-        log("Showing app screen with login screen");
         appScreen.getLoginScreen().setVisible(true);
         updateWelcomeLabel(WELCOME_STRING);
     }
@@ -931,6 +927,8 @@ public class GWTOAuthLoginDemo implements EntryPoint
             "go to the provider's developer page, where an app can be registered." + 
             "<br>" +
             "The links are correct as of Jul-04-2014." +
+            "<br>" +
+            "<font color=\"#ff0000\">The app does not ask for any private profile information.</font>" +
             "<br><br>" +
             "Supported OAuth Providers are: " + 
             "<ul>" + 

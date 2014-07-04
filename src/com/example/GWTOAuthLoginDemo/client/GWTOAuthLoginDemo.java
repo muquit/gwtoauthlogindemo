@@ -906,15 +906,38 @@ public class GWTOAuthLoginDemo implements EntryPoint
     {
         String gwtLink = "https://developers.google.com/web-toolkit/";
         gwtLink = "<a href=\"" + gwtLink + "\" target=\"_new\">GWT</a>";
+        // I always have to google to find where to register the app
+        // So I'll add the links here as of July-04-2014
+        String scribe = "<a href=\"https://github.com/fernandezpablo85/scribe-java\" target=\"_new\">scribe-java</a> 1.3.6";
+        String oauth = "<a href=\"http://oauth.net/\" target=\"_new\">OAuth</a>";
+        String facebook = "<a href=\"https://developers.facebook.com\" target=\"_new\">Facebook</a> (Extended from " + scribe +")";
+        String google = "<a href=\"https://console.developers.google.com/\" target=\"_new\">Google</a> (Extended from " + scribe +")";
+        String twitter = "<a href=\"https://dev.twitter.com/\" target=\"_new\">Twitter</a>";
+        String yahoo = "<a href=\"https://developer.yahoo.com/oauth/\" target=\"_new\">Yahoo!</a>";
+        String linkedin = "<a href=\"https://developer.linkedin.com/\" target=\"_new\">Linkedin</a> (Extended from " + scribe + ")";
+        String instagram = "<a href=\"http://instagram.com/developer/\" target=\"_new\">Instagram</a> (Extended from " + scribe + ")";
+        String vimeo = "<a href=\"https://developer.vimeo.com/\" target=\"_new\">Vimeo</a>";
+        String github = "<a href=\"https://developer.github.com/\" target=\"_new\">github</a> (Extended from " + scribe + ")";
+        String flickr = "<a href=\"https://www.flickr.com/services/developer/\" target=\"_new\">flickr</a>";
+        String microsoft = "<a href=\"https://account.live.com/developers/applications/create?tou=1\" target=\"_new\">Microsoft Live Connect</a>";
+        String tumblr = "<a href=\"http://www.tumblr.com/developers\" target=\"_new\">tumblr</a>";
+        String foursquare = "<a href=\"https://developer.foursquare.com/\" target=\"_new\">foursquare</a>";
+
         final String aboutMessage = 
-            "A " + gwtLink + " application to demonstrate Authorization using OAuth protocol."  +
+            "A " + gwtLink + " application to demonstrate Login using " + oauth + " protocol."  +
             "<br>" +
-            "This App uses Server side flow of OAuth." + 
+            "This App uses Server side flow of OAuth. Click on the provider name to" + 
+            "<br>" +
+            "go to the provider's developer page, where an app can be registered." + 
+            "<br>" +
+            "The links are correct as of Jul-04-2014." +
             "<br><br>" +
-            "Supported OAuth Providers are: Facebook, Google, Twitter, Yahoo!, Linkedin," +
-            "<br>" +
-            "Instagram, Vimeo, github, flickr, Microsoft Live Connect, tumblr and foursquare." +
-            "<br>" +
+            "Supported OAuth Providers are: " + 
+            "<ul>" + 
+            "<li>" + facebook + "<li>" + google + "<li>" + instagram + "<li>" + linkedin + "<li>" + microsoft +
+            "<li>" + twitter + "<li>" + vimeo + "<li>" + yahoo + "<li>" + flickr + "<li>" + foursquare + "<li>" + github + 
+            "<li>" + tumblr + 
+            "</ul>" +
             "--" +
             "<br>" +
             "Muhammad Muquit, <a href=\"http://www.muquit.com/\" target=\"_new\">http://www.muquit.com/</a>";    

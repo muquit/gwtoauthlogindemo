@@ -104,6 +104,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         OAuthService service = null;
         switch(authProvider)
         {
+            /*
             case ClientUtils.AWEBER:
             {
                 service = new ServiceBuilder()
@@ -114,6 +115,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
                     .build();
                 break;
             }
+            */
             case ClientUtils.FACEBOOK:
             {
                 service = new ServiceBuilder()

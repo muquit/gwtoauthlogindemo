@@ -12,9 +12,11 @@
     <property name="webapps.dir" value="${env.WEBAPPS_DIR}" />
     <property name="oauthparams.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/server/OAuth/OurOAuthParams.java"/>
     <property name="callbackurl.java" value="${basedir}/src/com/example/GWTOAuthLoginDemo/client/OAuth/OurCallbackUrl.java"/>
+    <property name="script-dir" value="${basedir}/scripts"/>
     <property name="gaetest.yaml" value="${basedir}/private/gae_test.yaml"/>
     <property name="gaeprod.yaml" value="${basedir}/private/gae_production.yaml"/>
     <property name="devlocal.yaml" value="${basedir}/private/local.yaml"/>
+    <property name="beforepush.yaml" value="${basedir}/private/template.yaml"/>
 
   <path id="project.class.path">
     <pathelement location="war/WEB-INF/classes"/>
@@ -152,67 +154,91 @@
   </target>
   
   <target name="gencallback-url-local" description="Generate CallbackUrl.java file for local dev">
-    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Running ${script-dir}/gen_callback_url.rb"/>
     <echo message="Updating: ${callbackurl.java}"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${callbackurl.java}">
         <arg value="gen_callback_url.rb"/>
-        <arg value="local"/>
+        <arg value="${devlocal.yaml}"/>
     </exec>
   </target>
 
   <target name="gencallback-url-gae-test" description="Generate CallbackUrl.java file for GAE Test">
-    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Running ${script-dir}/gen_callback_url.rb"/>
     <echo message="Updating: ${callbackurl.java}"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${callbackurl.java}">
         <arg value="gen_callback_url.rb"/>
-        <arg value="gae-test"/>
+        <arg value="${gaetest.yaml}"/>
     </exec>
   </target>
 
   <target name="gencallback-url-gae-prod" description="Generate CallbackUrl.java file for GAE Production">
-    <echo message="Running ${basedir}/misc/gen_callback_url.rb"/>
+    <echo message="Running ${script-dir}/gen_callback_url.rb"/>
     <echo message="Updating: ${callbackurl.java}"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${callbackurl.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${callbackurl.java}">
         <arg value="gen_callback_url.rb"/>
-        <arg value="gae-prod"/>
+        <arg value="${gaeprod.yaml}"/>
+    </exec>
+  </target>
+
+  <target name="gencallback-url-before-push" description="Generate CallbackUrl.java file with dummy URL">
+    <echo message="Running ${script-dir}/gen_callback_url.rb"/>
+    <echo message="Updating: ${callbackurl.java}"/>
+    <exec dir="${script-dir}" executable="ruby" output="${callbackurl.java}">
+        <arg value="gen_callback_url.rb"/>
+        <arg value="${beforepush.yaml}"/>
     </exec>
   </target>
 
   <target name="prepare-gae-test" depends="gencallback-url-gae-test" description="Update callback URL and OAuth parameters for GAE Test">
-    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Running ${script-dir}/yaml2java.rb"/>
     <echo message="Input file: ${gaetest.yaml}"/>
     <echo message="Onput file: ${oauthparams.java}"/>
     <echo message="Did you update OAuthLoginServiceImpl.java?"/>
     <echo message="NOTE: Do not forget to refresh in eclipse!"/>
     <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${oauthparams.java}">
         <arg value="yaml2java.rb"/>
         <arg value="${gaetest.yaml}"/>
     </exec>
   </target>
 
   <target name="prepare-gae-production" depends="gencallback-url-gae-prod" description="Update callback URL and OAuth parameters for GAE Production">
-    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Running ${script-dir}/yaml2java.rb"/>
     <echo message="Input file: ${gaeprod.yaml}"/>
     <echo message="Onput file: ${oauthparams.java}"/>
     <echo message="NOTE: Do not forget to refresh in eclipse!"/>
     <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${oauthparams.java}">
         <arg value="yaml2java.rb"/>
         <arg value="${gaeprod.yaml}"/>
     </exec>
   </target>
 
   <target name="prepare-dev-local" depends="gencallback-url-local" description="Update callback URL and OAuth parameters for testing at local">
-    <echo message="Running ${basedir}/misc/yaml2java.rb"/>
+    <echo message="Running ${script-dir}/yaml2java.rb"/>
     <echo message="Input file: ${devlocal.yaml}"/>
     <echo message="Onput file: ${oauthparams.java}"/>
     <echo message="NOTE: Do not forget to refresh in eclipse!"/>
     <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
-    <exec dir="${basedir}/misc" executable="ruby" output="${oauthparams.java}">
+    <exec dir="${script-dir}" executable="ruby" output="${oauthparams.java}">
         <arg value="yaml2java.rb"/>
         <arg value="${devlocal.yaml}"/>
     </exec>
   </target>
 
+  <!-- 
+  I run this task before pushing to github, it generates OAuthParams.java with
+  dummy data instead of data with my registered key and secret
+  -->
+  <target name="prepare-before-push" depends="gencallback-url-before-push" description="Update callback URL and OAuth parameters with blank data">
+    <echo message="Running ${script-dir}/yaml2java.rb"/>
+    <echo message="Input file: ${beforepush.yaml}"/>
+    <echo message="Onput file: ${oauthparams.java}"/>
+    <echo message="NOTE: Do not forget to refresh in eclipse!"/>
+    <echo message=">>>>>>>> Did you update OAuthLoginServiceImpl.java?"/>
+    <exec dir="${script-dir}" executable="ruby" output="${oauthparams.java}">
+        <arg value="yaml2java.rb"/>
+        <arg value="${beforepush.yaml}"/>
+    </exec>
+  </target>
 </project>

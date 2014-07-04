@@ -1,9 +1,22 @@
 --- !ruby/object:OAuthParams
 ########################################################################
-# Please register your Application with each of the OAuth provider
-# and update this file. Then run the appropriate ant tasks to generate
-# Java code
+# If you want to use this file to test OAuth in your local machine:
+#  - Copy this file to local.yaml
+#  - Come up with a fictitious domain name that does not exist
+#  - Use the domain and URL to register the application with OAuth
+#    providers e.g. facebook, google etc.
+#  - update the redirect_url with your domain
+#  - Update API Key and API secret.
+#  - If you are on Linux/Unix/Mac, edit /etc/hosts file:
+# 127.0.0.1 yourdomain.com
+#  - If you on Windows, update c:\Windows\System32\drivers\etc\hosts
+#    as Asministrator
+#
+#  - run the ant task prepare-dev-local (refresh if in eclipse)
+#  - run compile-and-run-local
+#  - point your browser to http://your_domain:8888/GWTOAuthLoginDemo.html
 ########################################################################
+redirect_url: 'http://your_domain:8888/GWTOAuthLoginDemo.html'
 providers:
   facebook:
     app_name: 'Your app_name'

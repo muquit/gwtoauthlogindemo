@@ -15,26 +15,14 @@ class UpdateCallbackUrl
   def check_args
     if ARGV.length != 1
       puts <<EOF
-  Usage: #{ME} <type>
-  Valid type is: local, gae-test, gae-prod, push
+  Usage: #{ME} <file.yaml>
 EOF
       exit 1
     end
   end
 
-  def generate_callbackurl(type)
+  def generate_callbackurl(yaml_file)
     url = ''
-    dir = File.expand_path(File.dirname(__FILE__))
-    base_dir = File.dirname(dir)
-
-    case type
-    when 'local'
-      yaml_file = base_dir + "/private/local.yaml"
-    when 'gae-test'
-      yaml_file = base_dir + "/private/gae_test.yaml"
-    when 'gae-prod'
-      yaml_file = base_dir + "/private/gae_production.yaml"
-    end
     if !File.exists?(yaml_file)
     puts <<EOF
 ERROR: File '#{yaml_file}' does not exist"
@@ -55,7 +43,6 @@ package com.example.GWTOAuthLoginDemo.client.OAuth;
 ** Source: private/#{source}
 ** DO NOT MODIFY
 ** Generated on: #{t}
-** Development Type: #{type} 
 */
 
 public class OurCallbackUrl
@@ -68,20 +55,7 @@ EOF
 
   def doit
     check_args
-    type = ''
-    case ARGV[0]
-    when "local"
-      type = 'local'
-    when "gae-test"
-      type = 'gae-test'
-    when "gae-prod"
-      type = 'gae-prod'
-    else
-      puts "ERROR: unknown type: #{ARGV[0]}"
-      exit 1
-    end
-    generate_callbackurl(type)
-    exit 0
+    generate_callbackurl(ARGV[0])
   end
 end
 

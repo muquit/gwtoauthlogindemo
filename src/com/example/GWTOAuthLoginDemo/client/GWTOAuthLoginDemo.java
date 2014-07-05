@@ -927,9 +927,9 @@ public class GWTOAuthLoginDemo implements EntryPoint
             "go to the provider's developer page, where an app can be registered." + 
             "<br>" +
             "The links are correct as of Jul-04-2014." +
-            "<font color=\"#ff0000\"> The app does not ask for any private" +
+            "<font color=\"#ff0000\"> The app does not ask for any" +
             "<br>" +
-            "profile information. " +
+            "private profile information. " +
             "But please watch before authorization.</font>" +
             "<br><br>" +
             "Supported OAuth Providers are: " + 

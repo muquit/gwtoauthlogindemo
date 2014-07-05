@@ -725,7 +725,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
                     String json = result.getJson();
                     if (json != null)
                     {
-                        log(authProvider + " user retreived...\n" + json);
+                        log(authProvider + " user retrieved...\n" + json);
                     }
                     else
                     {
@@ -777,7 +777,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
                 else
                 {
                     String authProvider = ClientUtils.getAuthProviderNameFromCookie();
-                    log(authProvider + " user retreived...");
+                    log(authProvider + " user retrieved...");
                     String json = result.getJson();
                     if (json != null)
                     {

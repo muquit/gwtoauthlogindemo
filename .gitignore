@@ -26,6 +26,3 @@ gwt-unitCache
 */war/WEB-INF/deploy
 *~
 NOTES.txt
-private/local.yaml
-private/gae_test.yaml
-private/gae_production.yaml

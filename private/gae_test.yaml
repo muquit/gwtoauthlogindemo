@@ -1,80 +1,88 @@
 --- !ruby/object:OAuthParams
-redirect_url: 'https://gwtoauthlogindemo-test.appspot.com/GWTOAuthLoginDemo.html'
+########################################################################
+# If you want to use this file to test OAuth in your local machine:
+#  - Copy this file to local.yaml
+#  - Come up with a fictitious domain name that does not exist
+#  - Use the domain and URL to register the application with OAuth
+#    providers e.g. facebook, google etc.
+#  - update the redirect_url with your domain
+#  - Update API Key and API secret.
+#  - If you are on Linux/Unix/Mac, edit /etc/hosts file:
+# 127.0.0.1 yourdomain.com
+#  - If you on Windows, update c:\Windows\System32\drivers\etc\hosts
+#    as Asministrator
+#
+#  - run the ant task prepare-dev-local (refresh if in eclipse)
+#  - run compile-and-run-local
+#  - point your browser to http://your_domain:8888/GWTOAuthLoginDemo.html
+########################################################################
+redirect_url: 'http://your_domain:8888/GWTOAuthLoginDemo.html'
 providers:
-  aweber:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'AkvAdB7zorpMlWIXUI4QGekL'
-    api_secret: 'ws4ovXstlsrvVvinnBBpiNvHsdrZRrOMLIQQGxm9'
-    comment: 'registered as oauthdemo2012@g on Jun-28-2014'
   facebook:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '673575189381960'
-    api_secret: '154aceb7c3b0aab01fa6c76933dcd485'
-    comment: 'registered as oauthlogindemo@g on Jun-22-2014'
-  google:
-    app_name: 'GWTOAuthLoginDemo Tes'
-    api_key: '1050909057443-7n6qu0g5hl9vfh4hevavkqbv000cjm2h.apps.googleusercontent.com'
-    api_secret: '6T8264o26Djs9Tf1w0jtlne3'
-    scope: 'https://www.googleapis.com/auth/userinfo.profile'
-    comment: 'created as oauthlogindemo2012 on Jun-17-2014'
-  twitter:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'yOPdUo0V2e3XmKyVz6o0hMlNo'
-    api_secret: 'mPvb7SsxEAVqYtwvefJtj8Q6qnWJhDU4ERKEQVw6Wz6kgguqRN'
-    comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
-  yahoo:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'dj0yJmk9Wm5ON2J4NG9DRjlKJmQ9WVdrOWFVbFJSRTF2Tkc4bWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03ZQ--'
-    api_secret: '81e15aff764a0c8a7f5eae921ba194597ef63717'
-    comment: 'registered as oauthdemo2012 on Jun-22-2014'
-  instagram:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '078573531d0e452a80fbe881fc5947a8'
-    api_secret: '3fb0e46575f840ee81a9d4761450f463'
-    comment: 'registered as oauthlogindemo2012 on Jun-22-2014'
-  linkedin:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '773sdfqujzwp6p'
-    api_secret: 'MDCTqqR4aQMSLBbP'
-    user_token: 'XYZ'
-    user_secret: 'XYZ'
-    comment: 'registered as oauthlogindemo2012@gmail on Jun-27-2014'
-  github:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'd9b5ef35a01150fc5ca7'
-    api_secret: 'babd91bc973bc72070c2550061b63ab37d88094e'
-    comment: 'updated as oauthdemo2012 Jun-15-2014'
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
   flickr:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '4cda3073a98234ff91e1edf0f94054a1'
-    api_secret: '825fa1fad4742353'
-    comment: 'registered as oauthdemo2012@yahoo, does not use redirect url'
-  imgur:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '56bf93f2c985931'
-    api_secret: 'b218c72d27b0909dfef906ef344935c3c472d71f'
-    comment: 'registered as oauthdemo2012@gmail on Jun-29-2014'
-  vimeo:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '203ddd0ee75113259b70397abea323bcd506c000'
-    api_secret: '03bccb6b6c79230b2a4ff863438688919e55dba5'
-    comment: 'updated as oauthdemo2012 Jun-16-2014'
-  evernote:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'oauthdemo2012'
-    api_secret: '05aae97837ab74ee'
-  windowslive:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '0000000040123776'
-    api_secret: 'fcsKEkXcBpa8e6VD9IpbvljbYalh6MZW'
-    comment: 'registered as oauthdemo2012 on Jun-22-2014'
-  tumblrlive:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: 'Fb4s0LUqthPIhi1XgCDu0gTCwUWOCskuKMzyXpGMvOlWGn27oa'
-    api_secret: 'mynombuOvChMWDgRBbttzgLylcU2xBmvnRbB2G2P9SXQjOdSgn'
-    comment: 'registered as oauthdemo2012@gmail on Jun-22-2014'
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
   foursquare:
-    app_name: 'GWTOAuthLoginDemo'
-    api_key: '1XGKZMTKRNBDREAGDQMMBIUECBMYHEXUKMMUDBWGCIO03CYN'
-    api_secret: 'U1AL1T1HEEUPCS20PTCOWXDFA2CPVA2HI4OEBOBWQWWYJJ0A'
-    comment: 'registered as oauthdemo2012@gmail on Jun-29-2014'
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  github:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  google:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    scope: 'Your scope'
+    comment: 'Your comment'
+  imgur:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  instagram:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  linkedin:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    user_token: 'Your user_token'
+    user_secret: 'Your user_secret'
+    comment: 'Your comment'
+  tumblrlive:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  twitter:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  vimeo:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  windowslive:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'
+  yahoo:
+    app_name: 'Your app_name'
+    api_key: 'Your api_key'
+    api_secret: 'Your api_secret'
+    comment: 'Your comment'

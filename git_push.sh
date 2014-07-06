@@ -8,5 +8,5 @@
 ########################################################################
 echo ": Generating dummy OAuth parameters"
 ant prepare-before-push
-git commit -a -m "commit"
-# git push
+git commit -a -m "push to github. replaced oauth parameters with dummy data"
+git push

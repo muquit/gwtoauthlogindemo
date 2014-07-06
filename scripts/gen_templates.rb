@@ -39,6 +39,7 @@ class GenerateYamlTemplate
 #
 #  - run the ant task prepare-dev-local (refresh if in eclipse)
 #  - run compile-and-run-local
+# Note: the above ant tasks require ruby 1.9x
 #  - point your browser to http://your_domain:8888/GWTOAuthLoginDemo.html
 ########################################################################
 redirect_url: 'http://your_domain:8888/GWTOAuthLoginDemo.html'

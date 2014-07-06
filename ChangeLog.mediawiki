@@ -4,13 +4,8 @@ __TOC__
 * Use extended Google2 API. Taken from: https://gist.github.com/2465453.git
 * Extended Instagram2, Linkedin2 Apis
 * Extended Facebook API to add "state"
-* Generate java class file with OAuth parameters from yaml files. I test
-locally and at Google App Engine (GAE). When I think everything is working,
-generate the parameters for GAE production and push and I'm done.  It is 
-so much easier to maintain three registered apps and test at wil.
-* I do not check-in local.yaml, If you need to test locally, just create
-local.yaml like gae_*.yaml with your registered fictitious domain and run
-the appropricate ant task.
+* Generate java class file with OAuth parameters from yaml files. I test locally and at Google App Engine (GAE). When I think everything is working, generate the parameters for GAE production and push and I'm done.  It is so much easier to maintain three registered apps and test at wil.
+* I do not check-in yaml files with my registered keys and secrets, If you need to test locally, look at the comments in private/template.yaml
 * foursquare requires a version option in protected resource url.
 
 ===1.71===

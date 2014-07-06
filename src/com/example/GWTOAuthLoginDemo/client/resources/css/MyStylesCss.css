@@ -6,6 +6,10 @@
     font-weight: bold;
 }
 
+.paddedHorizontalPanel{
+	padding-lft:10px;
+}
+
 /*
 ** style of the close icon of dialog 
 ** we must overwrite gwt theme's style 

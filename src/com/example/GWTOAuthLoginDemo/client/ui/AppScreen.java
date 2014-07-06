@@ -131,21 +131,6 @@ public class AppScreen extends Composite
         
         verticalPanel.add(flexTable);
 
-//        loginAnchor = new Anchor("Login");
-//        loginAnchor.setTitle("Please Login to see protected resource");
-//        loginAnchor.setWordWrap(false);
-//       deckPanel.add(loginAnchor);
-        
-//        logoutAnchor = new Anchor("Logout");
-//        logoutAnchor.setWordWrap(false);
-//        deckPanel.add(logoutAnchor);
-//        deckPanel.showWidget(0);
-        
-//        row = 0; col = 0;
-//        flexTable.setWidget(row, col, deckPanel);
-        
-//        deckPanel.showWidget(0);
-        
         row = 0; col = 0;
         horizontalPanel = new HorizontalPanel();
         horizontalPanel.setSpacing(4);

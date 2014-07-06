@@ -691,28 +691,8 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             verifyState(credential.getState()); 
         }  
         
-        // some providers requires request token to get access token
-        /*
-        switch(authProvider)
-        {
-            case ClientUtils.TWITTER:
-            case ClientUtils.YAHOO:
-            case ClientUtils.LINKEDIN:
-            case ClientUtils.FLICKR:
-            case ClientUtils.VIMEO:
-            case ClientUtils.TUMBLR:
-            {
-                requestToken = getRequestTokenFromSession();
-                if (requestToken == null)
-                {
-                    throw new OurException("Could not retrieve Request Token form HTTP session");
-                }
-                break;
-            }
-        }
-        */
-        
-        /* if there is any request token in session, get it */
+        // if there is any request token in session, get it 
+        // it can be null
         requestToken = getRequestTokenFromSession();
         
         OAuthService service = null;
@@ -801,21 +781,6 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
             logger.info("Instragram protected resource url: " + protectedResourceUrl);
         }
         
-        if (authProvider == ClientUtils.IMGUR)
-        {
-            String jsonResponse = accessToken.getRawResponse();
-            logger.info("JSON response: " + jsonResponse);
-            JSONParser jsonParser = new JSONParser();
-            try
-            {
-                Object obj = jsonParser.parse(jsonResponse);
-            } catch (ParseException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-        
         if (authProvider == ClientUtils.GITHUB     ||
             authProvider == ClientUtils.FOURSQUARE ||
             authProvider == ClientUtils.LINKEDIN)
@@ -854,7 +819,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         SocialUser socialUser = null;
         if (authProvider != ClientUtils.DEFAULT)
         {
-            // must save acess token to session
+            // must save access token to session
             saveAccessTokenToSession(accessToken);
             
             // must save the protected resource url to session
@@ -900,14 +865,6 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         {
             throw new OurException(ClientUtils.SESSION_EXPIRED_MESSAGE);
         }
-        /*
-        ServersideSession sss = getServersideSession();
-        if (sss != null)
-        {
-            return sss.getAccessToken();
-        }
-        return null;
-        */
         return (Token) session.getAttribute(SESSION_ACCESS_TOKEN);
  
     }
@@ -919,12 +876,7 @@ public class OAuthLoginServiceImpl extends RemoteServiceServlet implements
         {
             throw new OurException(ClientUtils.SESSION_EXPIRED_MESSAGE);
         }
-        /*
-        ServersideSession sss = getServersideSession();
-        if (sss != null)
-            return sss.getAuthProvider();
-        */
-       return (Integer) session.getAttribute(SESSION_AUTH_PROVIDER);
+        return (Integer) session.getAttribute(SESSION_AUTH_PROVIDER);
     }
     
     private SocialUser getSocialUserFromJson(String json, int authProvider) throws OurException

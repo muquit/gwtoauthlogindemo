@@ -4,10 +4,10 @@
 	<inherits name="com.google.gwt.user.theme.clean.Clean"/>
 	
 	<!-- For production, most teams prefer to set the default log level to `OFF` -->
-    <!-- <inherits name="com.allen_sauer.gwt.log.gwt-log-OFF" /> -->
+    <inherits name="com.allen_sauer.gwt.log.gwt-log-OFF" />
 
     <!-- For development, a default of `DEBUG` is recommended -->
-    <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+    <!--  <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" /> -->
     
   
 	<entry-point class="com.example.GWTOAuthLoginDemo.client.GWTOAuthLoginDemo"/>

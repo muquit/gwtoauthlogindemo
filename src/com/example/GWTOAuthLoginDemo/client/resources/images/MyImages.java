@@ -57,6 +57,9 @@ public interface MyImages extends ClientBundle
     public DataResource closeIconImageData();
     
     @Source("32px/busy.gif")
-    public DataResource busyIconImageData();
+    public DataResource busy32IconImageData();
+
+    @Source("32px/busy16.gif")
+    public DataResource busy16IconImageData();
     
 }

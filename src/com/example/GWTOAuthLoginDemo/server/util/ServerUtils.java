@@ -47,24 +47,19 @@ public class ServerUtils
     private static Map<String,String> parseQueryString(String qs)
     {
         String[] ps = qs.split("&");
-        logger.info("params size: " + ps.length);
         Map<String,String> map = new HashMap<String,String>();
-        logger.info("map: " + map);
         
         for (String p: ps )
         {
             String k = p.split("=")[0];
             String v = p.split("=")[1];
-            logger.info("k= " + k + " v=" + v);
             map.put(k,v);
         }
-        logger.info("returing map");
         return map;
     }
 
     public static String getQueryStringValue(String qs,String name)
     {
-        logger.info("Parse query string: " + qs + " for " + name);
         Map<String,String> map = parseQueryString(qs);
         return map.get(name);
         
@@ -78,7 +73,6 @@ public class ServerUtils
      */
     public static String getQueryStringValueFromUrl(String urlString, String qsName) throws MalformedURLException
     {
-        logger.info("URL: " + urlString);
         URL url = new URL(urlString);
         String qs = url.getQuery();
         return getQueryStringValue(qs,qsName);

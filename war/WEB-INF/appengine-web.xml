@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <application>gwtoauthlogindemo-test</application>
+  <application>gwtoauthlogindemo-latest</application>
   <version>1</version>
 
   <!--
     Allows App Engine to send multiple requests to one instance in parallel:
   -->
-  <threadsafe>true</threadsafe>
+  <!--  
+  Deployment constantly hangs if threadsafe is true. Some kind of deadlock
+  issue I bet.
+  muquit@muquit.com, Jul-06-2014
+   -->
+  <threadsafe>false</threadsafe>
 
   <!-- Configure java.util.logging -->
   <system-properties>

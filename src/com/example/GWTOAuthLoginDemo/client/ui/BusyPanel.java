@@ -27,7 +27,7 @@ public class BusyPanel extends PopupPanel
     {
         setStyleName("busy-PopupPanel");
        setGlassEnabled(true);
-       SafeUri imageUri = images.busyIconImageData().getSafeUri();
+       SafeUri imageUri = images.busy16IconImageData().getSafeUri();
        final Image busyImage = new Image(imageUri);
        grid = new Grid(1,2);
        grid.setWidget(0,0,busyImage);

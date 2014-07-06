@@ -1,5 +1,5 @@
 --- !ruby/object:OAuthParams
-########################################################################
+#########################################################################
 # If you want to use this file to test OAuth in your local machine:
 #  - Copy this file to local.yaml
 #  - Come up with a fictitious domain name that does not exist

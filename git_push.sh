@@ -11,4 +11,4 @@ ant prepare-before-push
 git add src/com/example/GWTOAuthLoginDemo/client/OAuth/OurCallbackUrl.java
 git add src/com/example/GWTOAuthLoginDemo/server/OAuth/OurOAuthParams.java
 git commit -m "push to github. replaced oauth parameters with dummy data"
-#git push
+git push

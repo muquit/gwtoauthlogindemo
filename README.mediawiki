@@ -36,5 +36,5 @@ Currently the supported OAuth Providers are:
 * tumblr http://www.tumblr.com/developers/
 * foursquare https://developer.foursquare.com/
 
-This application uses [https://github.com/fernandezpablo85/scribe-java scribe-java] in Server Side. The library is very easy to use and extend. Please look at (src/com/example/GWTOAuthLoginDemo/server/OAuth) for extended code for various providers.
+This application uses [https://github.com/fernandezpablo85/scribe-java scribe-java] in Server Side. The library is very easy to use and extend. Please look at ```server/OAuth/``` for extended code for various providers.
 

@@ -22,8 +22,7 @@ Please down the latest source code from [https://github.com/muquit/gwtoauthlogin
 [[Image:https://raw.githubusercontent.com/wiki/muquit/gwtoauthlogindemo/images/login_screen.png]]
 == Why Prefer Server Side flow of OAuth? ==
 * More control. All the logic and processing are done in server side.
-* Secure. The request can be signed with your App Secret.
-* No JavaScript, no popup window, no logic in client side.
+* Secure. The request can be signed with your App Secret. No JavaScript, no popup window, no logic in client side.
 * OAuth artifacts (e.g. Access Token) can remain in the server side. Note: In this example, I bring them to client side explicitly via RPC to show them to you as an example.
 
 == Supported Providers ==

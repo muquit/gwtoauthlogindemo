@@ -85,7 +85,6 @@ The application includes all the jar files necessary in '''war/WEB-INF/lib''' di
 |Client side logging in debug mode
 |}
 ==License==
-MIT
 <pre>
 Copyright (C) 2001-2014  Muhammad Muquit (http://www.muquit.com/)
 

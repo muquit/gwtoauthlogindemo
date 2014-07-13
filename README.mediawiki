@@ -27,7 +27,7 @@ Updated: Jul-13-2014
 * Secure. The request can be signed with your App Secret. No JavaScript, no popup window, no logic in client side.
 * OAuth artifacts (e.g. Access Token) can remain in the server side. Note: In this example, I bring them to client side explicitly via RPC to show them to you as an example.
 
-== Supported Providers ==
+== Supported OAuth Providers ==
 Currently the supported OAuth Providers are:
 * Facebook https://developers.facebook.com/
 * Google https://console.developers.google.com/

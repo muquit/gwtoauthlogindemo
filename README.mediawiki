@@ -1,4 +1,4 @@
-== GWTOAuthLoginDemo ==
+== What is it? ==
 
 * [https://gwtoauthlogindemo-latest.appspot.com/ GWTOAuthLoginDemo] is a web application written using [http://www.gwtproject.org/ GWT] to demonstrate user Authorization using [http://oauth.net/ OAuth] protocol used by third party providers (Facebook, Google, Twitter etc.). This Application uses Server side flow of OAuth using the [https://github.com/fernandezpablo85/scribe-java Scribe] library. The API is extended for some providers e.g. Google 2.0, Instagram, github.
 
@@ -7,7 +7,36 @@
 I am in the process of moving the project from https://code.google.com/p/gwtoauthlogindemo/
 
 ..
-The app is available in Google App Engine:
+== Demo ==
+The app is available at Google App Engine:
 
 * Latest version: https://gwtoauthlogindemo-latest.appspot.com/
 * Development version: https://gwtoauthlogindemo-test.appspot.com/
+
+== Source ==
+
+== Why Prefer Server Side flow of OAuth? ==
+* More control. All the logic and processing are done in server side.
+* Secure. The request can be signed with your App Secret.
+* No JavaScript, no popup window, no logic in client side.
+* OAuth artifacts (e.g. Access Token) can remain in the server side. Note: In this example, I bring them to client side explicitly via RPC to show them to you as an example.
+
+== Supported Providers ==
+Currently the supported OAuth Providers are:
+* Facebook https://developers.facebook.com/
+* Google https://console.developers.google.com/
+* Twitter https://dev.twitter.com/
+* Yahoo! https://developer.yahoo.com/oauth/
+* Linkedin https://developer.linkedin.com/
+* Instagram http://instagram.com/developer/
+* Vimeo https://developer.vimeo.com/
+* github https://developer.github.com/
+* flickr https://www.flickr.com/services/developer/
+* Microsoft Live Connect https://account.live.com/developers/applications/
+* tumblr http://www.tumblr.com/developers/
+* foursquare https://developer.foursquare.com/
+
+This application uses [scribe-java] in Server Side, because I find the library very easy to use and extend. 
+
+[facebook]: https://developers.facebook.com/
+[scribe-java]: https://github.com/fernandezpablo85/scribe-java

@@ -17,7 +17,7 @@ The app is available at Google App Engine:
 
 == Source ==
 
-Please download the latest v1.73source code from [https://github.com/muquit/gwtoauthlogindemo/releases releases].
+Please download the latest source code (v1.73) from [https://github.com/muquit/gwtoauthlogindemo/releases releases].
 
 Updated: Jul-13-2014 
 == Screenshot ==

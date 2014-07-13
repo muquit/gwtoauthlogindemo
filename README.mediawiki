@@ -36,7 +36,5 @@ Currently the supported OAuth Providers are:
 * tumblr http://www.tumblr.com/developers/
 * foursquare https://developer.foursquare.com/
 
-This application uses [[scribe-java]] in Server Side, because I find the library very easy to use and extend. 
+This application uses [https://github.com/fernandezpablo85/scribe-java scribe-java] in Server Side. The library is very easy to use and extend. 
 
-[facebook]: https://developers.facebook.com/ 
-[scribe-java]: https://github.com/fernandezpablo85/scribe-java

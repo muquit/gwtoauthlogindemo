@@ -15,7 +15,7 @@ The app is available at Google App Engine:
 
 == Source ==
 == Screenshot ==
-[[https://raw.githubusercontent.com/wiki/muquit/gwtoauthlogindemo/images/login_screen.png]]
+[[Image:https://raw.githubusercontent.com/wiki/muquit/gwtoauthlogindemo/images/login_screen.png]]
 == Why Prefer Server Side flow of OAuth? ==
 * More control. All the logic and processing are done in server side.
 * Secure. The request can be signed with your App Secret.

@@ -4,12 +4,10 @@
 
 * If you need to add third party login in your GWT application, I would like to think you can use this application as an example. I am releasing the code with the hope that you will find it useful. I am also interested in code review, finding security issues etc. if there are any.
 
-I am in the process of moving the project from [[https://code.google.com/p/gwtoauthlogindemo/]]
+I am in the process of moving the project from https://code.google.com/p/gwtoauthlogindemo/
 
 ..
 The app is available in Google App Engine:
 
-* Latest version: [[https://gwtoauthlogindemo-latest.appspot.com/]]
-* Development version: [[https://gwtoauthlogindemo-test.appspot.com/]]
-*
-
+* Latest version: https://gwtoauthlogindemo-latest.appspot.com/
+* Development version: https://gwtoauthlogindemo-test.appspot.com/

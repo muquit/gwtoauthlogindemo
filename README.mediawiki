@@ -4,6 +4,8 @@
 
 * If you need to add third party login in your GWT application, I would like to think you can use this application as an example. I am releasing the code with the hope that you will find it useful. I am also interested in code review, finding security issues etc. if there are any.
 
+* It also follows best practices on how to authenticate users from a GWT application.
+
 If you have any question, request or suggestion, please enter it in  the [https://github.com/muquit/gwtoauthlogindemo/issues Issues] with appropriate label.
 
 '''NOTE''': I am in the process of moving the project from [https://code.google.com/p/gwtoauthlogindemo/ google code]

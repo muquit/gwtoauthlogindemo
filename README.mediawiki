@@ -8,8 +8,7 @@ If you have any question, request or suggestion, please enter it in  the [https:
 
 
 I am in the process of moving the project from https://code.google.com/p/gwtoauthlogindemo/
-
-..
+....
 == Demo ==
 The app is available at Google App Engine:
 

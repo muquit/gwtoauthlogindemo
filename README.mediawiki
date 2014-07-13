@@ -6,7 +6,7 @@
 
 If you have any question, request or suggestion, please enter it in  the [https://github.com/muquit/gwtoauthlogindemo/issues Issues] with appropriate label.
 
-<span style="color:red"> I am in the process of moving the project from [https://code.google.com/p/gwtoauthlogindemo/ google code] </span>
+'''NOTE''': I am in the process of moving the project from [https://code.google.com/p/gwtoauthlogindemo/ google code]
 == Demo ==
 The app is available at Google App Engine:
 

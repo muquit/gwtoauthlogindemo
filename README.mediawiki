@@ -16,7 +16,8 @@ The app is available at Google App Engine:
 * Development version: https://gwtoauthlogindemo-test.appspot.com/
 
 == Source ==
-Please down the latest source code from [https://github.com/muquit/gwtoauthlogindemo/releases releases].
+
+Please down the latest v1.73 (updated: Jul-13-2014) source code from [https://github.com/muquit/gwtoauthlogindemo/releases releases].
 == Screenshot ==
 [[Image:https://raw.githubusercontent.com/wiki/muquit/gwtoauthlogindemo/images/login_screen.png]]
 == Why Prefer Server Side flow of OAuth? ==

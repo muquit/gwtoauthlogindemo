@@ -68,7 +68,7 @@ When the Login link is clicked and if you are already logged in with an OAuth Pr
 When the Logout link is clicked, you will be logged out of this specific application, meaning the session of the application will be invalidated and the cookies will be removed. But you will still be logged in to the OAuth Provider. As OAuth is an authorization protocol (you get an Access Token to access certain protected resources), there is no way to Logout in a traditional sense. You will notice, if you Logout and Login again, your provider will give you the same Access Token if it has not expired yet.
 
 == External libraries used ==
-The application includes all the jar files necessary in '''war/WEB-INF/lib'' directory. Here are the few ones that should be mentioned specifically.
+The application includes all the jar files necessary in '''war/WEB-INF/lib''' directory. Here are the few ones that should be mentioned specifically.
 
 {|
 ! Name

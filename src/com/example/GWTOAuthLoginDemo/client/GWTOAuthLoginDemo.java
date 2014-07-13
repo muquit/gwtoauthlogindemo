@@ -43,7 +43,7 @@ import com.google.gwt.user.client.ui.TextArea;
  */
 public class GWTOAuthLoginDemo implements EntryPoint
 {
-    private final String VERSION = "1.72";
+    private final String VERSION = "1.73";
     private final String VERSION_STRING = "GWTOAuthLoginDemo dev v" + VERSION;
     private final String VERSION_STRING_PLAIN = "GWTOAuthLoginDemo v" +  VERSION;
     private final String WELCOME_STRING = "Welcome to " + VERSION_STRING;
@@ -60,6 +60,7 @@ public class GWTOAuthLoginDemo implements EntryPoint
         return singleton;
     }
     
+    /* Entry point */
     public void onModuleLoad()
     {
         singleton = this;
@@ -76,7 +77,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
         // if there is a client side session show, Logout link
         if (ClientUtils.alreadyLoggedIn())
         {
-            //log("Already logged in..showing Logout anchor");
             showLogoutAnchor();
         }
         else
@@ -94,7 +94,10 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void showLoginScreen()
     {
+        appScreen.getTopBar().hideLogoutAnchor();
         appScreen.getLoginScreen().setVisible(true);
+        loginScreen.getUsernameTextBox().setText("");
+        loginScreen.getPasswordTextBox().setText("");
         updateWelcomeLabel(WELCOME_STRING);
     }
     
@@ -380,17 +383,6 @@ public class GWTOAuthLoginDemo implements EntryPoint
     
     private void setupMainScreenHandlers()
     {
-        /*
-        appScreen.getLoginAnchor().addClickHandler(new ClickHandler()
-        {
-            @Override
-            public void onClick(ClickEvent event)
-            {
-                showLoginScreen();
-            }
-        });
-        */
-        
         appScreen.getTopBar().getLogoutAnchor().addClickHandler(new ClickHandler()
         {
             @Override

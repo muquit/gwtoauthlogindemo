@@ -1,8 +1,13 @@
 __TOC__
+===1.73===
+* Top bar was not updated properly after logut.
+(Jul-13-2014)
+
 ===1.72===
+* Use gwt 2.6.1
 * Use base scribe-java-1.3.6.
 * Use extended Google2 API. Taken from: https://gist.github.com/2465453.git
-* Extended Instagram2, Linkedin2 Apis
+* Extended Instagram2, Linkedin2 APIs
 * Extended Facebook API to add "state"
 * Generate java class file with OAuth parameters from yaml files. I test locally and at Google App Engine (GAE). When I think everything is working, generate the parameters for GAE production and push and I'm done.  It is so much easier to maintain three registered apps and test at wil.
 * I do not check-in yaml files with my registered keys and secrets, If you need to test locally, look at the comments in private/template.yaml

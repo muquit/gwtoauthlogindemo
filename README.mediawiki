@@ -75,7 +75,7 @@ The application includes all the jar files necessary in '''war/WEB-INF/lib''' di
 |scribe-1.3.6
 |OAuth in Server Side
 |-
-json-simple-1.1.1.jar
+|json-simple-1.1.1.jar
 |Parsing JSON
 |-
 |argo-3.2.jar
